@@ -1,0 +1,174 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Admin — RR Furnitures</title>
+
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <style>
+    .card-shadow {
+      box-shadow: 0 8px 28px rgba(15, 23, 42, 0.1);
+    }
+  </style>
+</head>
+
+<body class="bg-gray-100 text-gray-800">
+
+<!-- NAV -->
+<header class="bg-white shadow p-4 flex justify-between items-center">
+  <h1 class="text-xl font-bold">RR Furnitures — Admin Panel</h1>
+  <a href="index.html" class="px-4 py-2 bg-gray-800 text-white rounded">Back</a>
+</header>
+
+<!-- MAIN -->
+<main class="max-w-6xl mx-auto py-10 px-4">
+
+  <!-- FORM -->
+  <section class="bg-white p-6 rounded-lg card-shadow mb-8">
+    <h2 class="text-lg font-semibold mb-4">Add / Edit Product</h2>
+
+    <div class="grid md:grid-cols-2 gap-4">
+
+      <input id="pName" placeholder="Product Name" class="p-3 border rounded">
+      <input id="pPrice" type="number" placeholder="Price" class="p-3 border rounded">
+      <input id="pStock" type="number" placeholder="Stock" class="p-3 border rounded">
+      <input id="pImg" placeholder="Image URL" class="p-3 border rounded">
+
+      <!-- 🔥 CATEGORY -->
+      <input id="pCategory" placeholder="Category (bed, chair...)" class="p-3 border rounded">
+
+      <textarea id="pDesc" placeholder="Description"
+        class="p-3 border rounded md:col-span-2"></textarea>
+
+    </div>
+
+    <button id="addBtn"
+      class="mt-4 px-6 py-3 bg-green-600 text-white rounded">
+      Add Product
+    </button>
+  </section>
+
+  <!-- PRODUCTS -->
+  <section>
+    <h2 class="text-xl font-semibold mb-4">All Products</h2>
+
+    <div id="productsList"
+      class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6"></div>
+  </section>
+
+</main>
+
+<!-- SCRIPT -->
+<script type="module">
+
+import {
+  addProduct,
+  getAllProducts,
+  deleteProduct,
+  updateProduct
+} from "./firebase.js";
+
+const listEl = document.getElementById("productsList");
+const addBtn = document.getElementById("addBtn");
+
+let editId = null;
+
+// ADD / UPDATE
+addBtn.addEventListener("click", async () => {
+
+  const name = document.getElementById("pName").value;
+  const price = parseInt(document.getElementById("pPrice").value);
+  const stock = parseInt(document.getElementById("pStock").value);
+  const img = document.getElementById("pImg").value;
+  const desc = document.getElementById("pDesc").value;
+  const category = document.getElementById("pCategory").value;
+
+  if (!name || !price || !img) {
+    alert("Fill required fields");
+    return;
+  }
+
+  if (editId) {
+    await updateProduct(editId, { name, price, stock, img, desc, category });
+    alert("Updated!");
+    editId = null;
+    addBtn.textContent = "Add Product";
+  } else {
+    await addProduct(name, price, stock, img, desc, category);
+    alert("Added!");
+  }
+
+  loadProducts();
+});
+
+// LOAD PRODUCTS
+async function loadProducts() {
+  const products = await getAllProducts();
+
+  listEl.innerHTML = "";
+
+  products.forEach(p => {
+
+    const card = document.createElement("div");
+    card.className = "bg-white rounded-lg shadow p-4";
+
+    card.innerHTML = `
+      <img src="${p.img}" class="h-40 w-full object-cover rounded">
+
+      <h3 class="mt-2 font-semibold">${p.name}</h3>
+      <p class="text-sm text-gray-600">₹${p.price}</p>
+
+      <div class="mt-3 flex gap-2">
+
+        <button onclick="editProduct('${p.id}')"
+          class="px-3 py-1 bg-blue-600 text-white rounded text-sm">
+          Edit
+        </button>
+
+        <button onclick="deleteProductAction('${p.id}')"
+          class="px-3 py-1 bg-red-600 text-white rounded text-sm">
+          Delete
+        </button>
+
+      </div>
+    `;
+
+    listEl.appendChild(card);
+  });
+}
+
+// DELETE
+window.deleteProductAction = async function(id) {
+  if (!confirm("Delete?")) return;
+  await deleteProduct(id);
+  loadProducts();
+}
+
+// EDIT
+window.editProduct = async function(id) {
+
+  const products = await getAllProducts();
+  const p = products.find(x => x.id === id);
+
+  if (!p) return;
+
+  document.getElementById("pName").value = p.name;
+  document.getElementById("pPrice").value = p.price;
+  document.getElementById("pStock").value = p.stock;
+  document.getElementById("pImg").value = p.img;
+  document.getElementById("pDesc").value = p.desc;
+  document.getElementById("pCategory").value = p.category;
+
+  editId = id;
+  addBtn.textContent = "Update Product";
+}
+
+loadProducts();
+
+</script>
+
+</body>
+</html>

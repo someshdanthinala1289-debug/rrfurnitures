@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>RR Furniture | Cart</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+
+<body class="bg-gray-100 font-sans">
+
+<!-- NAV -->
+<nav class="bg-white shadow-md px-6 py-4 flex justify-between items-center">
+  <a href="index.html" class="text-2xl font-bold text-amber-800">RR Furniture</a>
+  <a href="products.html" class="text-sm text-gray-700 hover:text-amber-700">
+    Continue shopping
+  </a>
+</nav>
+
+<!-- MAIN -->
+<main class="max-w-5xl mx-auto px-4 py-10">
+
+  <h1 class="text-2xl font-bold text-amber-800 mb-6">Your Cart</h1>
+
+  <!-- CART ITEMS -->
+  <section id="cartContainer" class="space-y-4"></section>
+
+  <!-- SUMMARY -->
+  <div id="cartSummary" class="mt-8 text-right text-sm text-gray-700"></div>
+
+  <!-- CUSTOMER FORM -->
+  <div id="customerForm" class="mt-6 space-y-3">
+
+    <input id="custName" placeholder="Your Name"
+      class="w-full border px-3 py-2 rounded">
+
+    <input id="custPhone" placeholder="Phone Number"
+      class="w-full border px-3 py-2 rounded">
+
+    <textarea id="custAddress" placeholder="Address"
+      class="w-full border px-3 py-2 rounded"></textarea>
+
+  </div>
+
+</main>
+
+<!-- SCRIPT -->
+<script src="./cart.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,848 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>RR Furnitures — Wooden Interiors & Furniture</title>
+
+  <!-- Tailwind CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            wood: {
+              50: "#fbf5ef",
+              100: "#f3e6d6",
+              300: "#d59a5a",
+              500: "#b36b1b",
+              700: "#7b4211"
+            }
+          },
+          fontFamily: {
+            sans: ['Poppins', 'ui-sans-serif', 'system-ui', 'sans-serif']
+          }
+        }
+      }
+    }
+  </script>
+
+  <style>
+    :root { --accent: #b36b1b; }
+    body { -webkit-font-smoothing:antialiased; -moz-osx-font-smoothing:grayscale; }
+    .card-shadow { box-shadow: 0 8px 28px rgba(15,23,42,0.06); }
+    .floating-whatsapp { position: fixed; right: 18px; bottom: 22px; z-index: 60; }
+    .request-tab { position: fixed; right: 0; top: 50%; transform: translateY(-50%); z-index: 60; }
+  </style>
+</head>
+<body class="bg-wood-50 text-gray-800 overflow-x-hidden">
+
+  <!-- TOP BAR -->
+<div class="bg-gray-900 text-white text-[10px] sm:text-xs px-3 md:px-6 py-2 flex flex-col sm:flex-row items-center justify-between gap-1 text-center">
+  <div>RR Furnitures • Premium Wooden Interiors & Solid Wood Products</div>
+  <div>Mon–Sat: 9:00–19:00 &nbsp; +91 93810 49087</div>
+</div>
+
+<!-- MAIN NAV -->
+<header class="bg-white shadow px-4 md:px-6 py-4 sticky top-0 z-50">
+
+  <div class="flex flex-wrap lg:flex-nowrap items-center justify-between gap-4">
+
+<!-- FINAL LOGO CODE -->
+<div class="flex items-center gap-4">
+  <img 
+    src="https://i.ibb.co/Y7q3ZZL7/WhatsApp-Image-2026-04-10-at-12-05-23-AM.jpg" 
+    alt="RR Furnitures Logo" 
+    class="h-12 md:h-16 w-auto object-contain drop-shadow">
+
+  <div>
+    <h1 class="text-2xl font-bold text-gray-800 tracking-tight">RR Furnitures</h1>
+    <p class="text-xs text-gray-500">Comfort • Quality • Timeless</p>
+  </div>
+</div>
+    <!-- SEARCH BAR -->
+    <div class="w-full lg:flex-1 lg:max-w-xl order-3 lg:order-none">
+      <input type="text" placeholder="Search sofas, beds, tables..."
+        class="w-full border rounded-full px-4 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-amber-600">
+    </div>
+
+    <!-- RIGHT SIDE -->
+    <div class="flex items-center gap-4 text-sm">
+      <a href="cart.html">Cart</a>
+      <a href="https://wa.me/919381049087" class="text-green-600 font-medium">WhatsApp</a>
+      <a href="#" class="bg-amber-700 text-white px-4 py-2 rounded">Request Call</a>
+    </div>
+
+  </div>
+<!-- CATEGORY NAV -->
+<div class="mt-4 flex gap-6 text-sm text-gray-700 items-center relative">
+
+  <a href="#">New Arrivals</a>
+
+  <!-- SOFAS -->
+  <div class="relative group">
+    <button class="hover:text-amber-700">Sofas</button>
+
+    <div class="absolute hidden group-hover:flex 
+                left-0 top-full mt-2 
+                bg-white shadow-lg p-6 gap-10 z-50">
+
+      <div>
+        <h3 class="font-semibold mb-2">Sofas</h3>
+        <a href="#">Wooden Sofas</a>
+        <a href="#">3 Seater Sofas</a>
+        <a href="#">2 Seater Sofas</a>
+        <a href="#">L Shape Sofas</a>
+      </div>
+
+      <div>
+        <h3 class="font-semibold mb-2">Sofa Cum Bed</h3>
+        <a href="#">Wooden Sofa Cum Beds</a>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- BEDS -->
+  <div class="relative group">
+    <button class="hover:text-amber-700">Beds</button>
+
+    <div class="absolute hidden group-hover:flex 
+                left-0 top-full mt-2 
+                bg-white shadow-lg p-6 gap-10 z-50">
+
+      <div>
+        <h3 class="font-semibold mb-2">Beds</h3>
+        <a href="#">Solid Wood Beds</a>
+        <a href="#">King Size Beds</a>
+        <a href="#">Queen Size Beds</a>
+      </div>
+
+      <div>
+        <h3 class="font-semibold mb-2">Storage Beds</h3>
+        <a href="#">Hydraulic Storage Beds</a>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- DINING -->
+  <div class="relative group">
+    <button class="hover:text-amber-700">Dining</button>
+
+    <div class="absolute hidden group-hover:flex 
+                left-0 top-full mt-2 
+                bg-white shadow-lg p-6 gap-10 z-50">
+
+      <div>
+        <h3 class="font-semibold mb-2">Dining Sets</h3>
+        <a href="#">4 Seater</a>
+        <a href="#">6 Seater</a>
+        <a href="#">8 Seater</a>
+      </div>
+
+      <div>
+        <h3 class="font-semibold mb-2">Dining Tables</h3>
+        <a href="#">Wooden Dining Tables</a>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- COFFEE TABLE -->
+  <div class="relative group">
+    <button class="hover:text-amber-700">Coffee Tables</button>
+
+    <div class="absolute hidden group-hover:block 
+                left-0 top-full mt-2 
+                bg-white shadow-lg p-4 z-50">
+      <a href="#">Wooden Coffee Tables</a>
+      <a href="#">Coffee Table Sets</a>
+    </div>
+  </div>
+
+  <!-- WARDROBES -->
+  <div class="relative group">
+    <button class="hover:text-amber-700">Wardrobes</button>
+
+    <div class="absolute hidden group-hover:block 
+                left-0 top-full mt-2 
+                bg-white shadow-lg p-4 z-50">
+      <a href="#">2 Door Wardrobes</a>
+      <a href="#">3 Door Wardrobes</a>
+      <a href="#">Sliding Wardrobes</a>
+    </div>
+  </div>
+
+  <!-- TV UNITS -->
+  <div class="relative group">
+    <button class="hover:text-amber-700">TV Units</button>
+
+    <div class="absolute hidden group-hover:block 
+                left-0 top-full mt-2 
+                bg-white shadow-lg p-4 z-50">
+      <a href="#">Wooden TV Units</a>
+    </div>
+  </div>
+
+  <!-- STUDY -->
+  <div class="relative group">
+    <button class="hover:text-amber-700">Study</button>
+
+    <div class="absolute hidden group-hover:block 
+                left-0 top-full mt-2 
+                bg-white shadow-lg p-4 z-50">
+      <a href="#">Study Tables</a>
+      <a href="#">Office Tables</a>
+    </div>
+  </div>
+
+  <!-- STORAGE -->
+  <div class="relative group">
+    <button class="hover:text-amber-700">Storage</button>
+
+    <div class="absolute hidden group-hover:block 
+                left-0 top-full mt-2 
+                bg-white shadow-lg p-4 z-50">
+      <a href="#">Cabinets</a>
+      <a href="#">Sideboards</a>
+      <a href="#">Chest of Drawers</a>
+    </div>
+  </div>
+
+  <!-- 🔥 HOME INTERIORS -->
+  <div class="relative ml-6">
+    <button id="homeBtn"
+      class="text-lg font-bold text-amber-700">
+      Home Interiors
+    </button>
+
+    <div id="homeMenu"
+      class="hidden absolute top-full left-0 mt-2 bg-white shadow rounded w-40">
+      <a href="#" class="block px-4 py-2 hover:bg-gray-100">Kitchen</a>
+      <a href="#" class="block px-4 py-2 hover:bg-gray-100">Bedroom</a>
+      <a href="#" class="block px-4 py-2 hover:bg-gray-100">TV Unit</a>
+    </div>
+  </div>
+
+</div>
+ 
+  <!-- HERO BANNER - Urban Ladder Style -->
+<section class="relative h-screen flex items-center justify-center overflow-hidden">
+  
+  <!-- Background Image (Urban Wooden Vibe) -->
+  <img src=https://cdn.swadeshonline.com/v2/patient-paper-41f385/swad-p/wrkr/products/pictures/item/free/450x0/JwbsZMJ5BXg-1.jpg?q=80&w=2000&auto=format&fit=crop" 
+       alt="RR Furnitures - Premium Wooden Interiors" 
+       class="absolute inset-0 w-full h-full object-cover">
+
+  <!-- Dark Overlay -->
+  <div class="absolute inset-0 bg-black/50"></div>
+
+  <!-- Content -->
+  <div class="relative z-10 max-w-5xl mx-auto px-6 text-center text-white">
+    
+    <div class="inline-flex items-center gap-2 bg-white/20 backdrop-blur-md px-5 py-2 rounded-full mb-6">
+      <span class="text-amber-300">✦</span>
+      <span class="text-sm font-medium tracking-widest">URBAN WOODEN LIVING</span>
+    </div>
+
+    <h1 class="text-5xl md:text-7xl font-bold leading-tight tracking-tight">
+      Premium Wooden Furniture<br>
+      <span class="text-wood-300">Crafted for Modern Homes</span>
+    </h1>
+
+    <p class="mt-6 text-xl md:text-2xl text-gray-200 max-w-2xl mx-auto">
+      Solid Sheesham • Timeless Designs • Custom Interiors
+    </p>
+
+    <div class="mt-10 flex flex-col sm:flex-row gap-4 justify-center">
+      <a href="#categories" 
+         class="px-10 py-4 bg-wood-700 hover:bg-wood-600 text-white font-semibold text-lg rounded-2xl transition">
+        Shop Collections
+      </a>
+      
+      <a href="https://wa.me/919381049087?text=Hi%20RR%20Furnitures,%20I%20want%20to%20know%20more%20about%20your%20premium%20wooden%20furniture."
+         class="px-10 py-4 border-2 border-white hover:bg-white hover:text-gray-900 font-semibold text-lg rounded-2xl transition">
+        Get Free Quote on WhatsApp
+      </a>
+    </div>
+
+    <!-- Trust signals -->
+    <div class="mt-16 flex flex-wrap justify-center gap-x-8 gap-y-3 text-sm opacity-90">
+      <div>✅ Solid Wood Guaranteed</div>
+      <div>✅ 5-Year Warranty</div>
+      <div>✅ Free Site Visit & Measurement</div>
+      <div>✅ Bulk & Custom Projects</div>
+    </div>
+  </div>
+
+  <!-- Scroll down indicator -->
+  <div class="absolute bottom-10 left-1/2 transform -translate-x-1/2 flex flex-col items-center text-white/70">
+    <span class="text-xs tracking-widest">SCROLL TO EXPLORE</span>
+    <div class="mt-2 w-6 h-10 border-2 border-white/70 rounded-full flex items-center justify-center">
+      <div class="w-1 h-3 bg-white/70 rounded-full animate-bounce"></div>
+    </div>
+  </div>
+</section>
+  <!-- 🔥 SIDE WIDGETS BELOW HERO -->
+  <div class="mt-6 grid md:grid-cols-3 gap-6">
+
+    <!-- WIDGET 1 -->
+    <div class="bg-white p-4 rounded-lg card-shadow">
+      <div class="flex items-start gap-3">
+        <div class="w-14 h-14 rounded bg-wood-500 text-white flex items-center justify-center font-bold text-lg">IN</div>
+        <div>
+          <h4 class="font-semibold">Interior Consultation</h4>
+          <p class="text-sm text-gray-500 mt-1">
+            Schedule a site visit for measurement & free consultation.
+          </p>
+          <div class="mt-3">
+            <a href="https://wa.me/919381049087"
+               class="inline-flex items-center px-3 py-2 rounded bg-wood-700 text-white text-sm">
+               Book via WhatsApp
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- WIDGET 2 -->
+    <div class="bg-white p-4 rounded-lg card-shadow">
+      <h5 class="font-semibold">Quick Links</h5>
+      <ul class="mt-3 text-sm text-gray-600 space-y-2">
+        <li><a href="#categories" class="hover:underline">Shop by Category</a></li>
+        <li><a href="#projects" class="hover:underline">Completed Projects</a></li>
+        <li><a href="#bulk" class="hover:underline">Bulk & Commercial</a></li>
+      </ul>
+    </div>
+
+    <!-- WIDGET 3 -->
+    <div class="bg-white p-4 rounded-lg card-shadow">
+      <h5 class="font-semibold">Contact</h5>
+      <p class="text-sm text-gray-600 mt-1">Call or WhatsApp for support.</p>
+      <div class="mt-3">
+        <a href="tel:+919381049087" class="block text-sm font-medium">
+          +91 93810 49087
+        </a>
+        <a href="mailto:rr.furnitures@gmail.com"
+           class="text-sm text-gray-500">
+          rr.furnitures@gmail.com
+        </a>
+      </div>
+    </div>
+
+  </div>
+
+</section>
+    <!-- TOP PICKS / Featured Designs -->
+    <section id="top-picks" class="mt-8">
+      <div class="flex items-center justify-between mb-4">
+        <div>
+          <h2 class="text-2xl font-semibold">Top Wooden Designs</h2>
+          <p class="text-sm text-gray-600">Popular interior layouts & furniture pieces clients love</p>
+        </div>
+        <a href="#collections" class="text-sm text-wood-700">View all designs →</a>
+      </div>
+
+      <div class="grid md:grid-cols-3 gap-6">
+        <!-- Card 1 -->
+        <article class="bg-white rounded-lg overflow-hidden card-shadow">
+          <img src="https://images.livspace-cdn.com/w:640/plain/https://d3gq2merok8n5r.cloudfront.net/abhinav/ond-1634120396-Obfdc/di-2026-1769081758-Ayx2Q/jfm-1769081772-NQyUm/ki-1769595043-UVNce/ki-46-1773117999-v9wuC.jpg?q=80&w=1200&auto=format&fit=crop" class="w-full h-56 object-cover" alt="design1">
+          <div class="p-4">
+            <h3 class="font-semibold text-lg">Contemporary Bedroom</h3>
+            <p class="text-sm text-gray-500 mt-1">Headboard panels, wardrobe and bedside units in matching wood finish.</p>
+            <div class="mt-3 flex items-center justify-between">
+              <span class="text-wood-700 font-bold">Request similar</span>
+              <a href="https://wa.me/919381049087" class="text-sm text-green-600">Chat</a>
+            </div>
+          </div>
+        </article>
+
+        <!-- Card 2 -->
+        <article class="bg-white rounded-lg overflow-hidden card-shadow">
+          <img src="https://images.livspace-cdn.com/w:1440/plain/https://d3gq2merok8n5r.cloudfront.net/abhinav/ond-1634120396-Obfdc/jfm-1643351360-ZAORQ/3d-team-1651477394-vrRr8/jfm-1651477408-yU7HY/june-1656893265-SL5ET/2022-06-24-clin350-dr01-op1-v1-mu-01-1656893405-eaizW.jpg?q=80&w=1200&auto=format&fit=crop" class="w-full h-56 object-cover" alt="design2">
+          <div class="p-4">
+            <h3 class="font-semibold text-lg">Open Living & Dining</h3>
+            <p class="text-sm text-gray-500 mt-1">Seamless wooden flow between living and dining areas for a cohesive look.</p>
+            <div class="mt-3 flex items-center justify-between">
+              <span class="text-wood-700 font-bold">Request quote</span>
+              <a href="#contact" class="text-sm text-wood-700">Contact</a>
+            </div>
+          </div>
+        </article>
+
+        <!-- Card 3 -->
+        <article class="bg-white rounded-lg overflow-hidden card-shadow">
+          <img src="https://i.pinimg.com/736x/8a/6b/b3/8a6bb399cab9ccf2d3636bd00fa088c2.jpg?q=80&w=1200&auto=format&fit=crop" class="w-full h-56 object-cover" alt="design3">
+          <div class="p-4">
+            <h3 class="font-semibold text-lg">Café & Restaurant Theme</h3>
+            <p class="text-sm text-gray-500 mt-1">Custom wooden counters, seating and display units for cozy dining spaces.</p>
+            <div class="mt-3 flex items-center justify-between">
+              <span class="text-wood-700 font-bold">Bulk projects</span>
+              <a href="#bulk" class="text-sm text-wood-700">Discuss</a>
+            </div>
+          </div>
+        </article>
+      </div>
+    </section>
+
+ <!-- WOODEN FURNITURE CATEGORIES -->
+<section id="categories" class="mt-12">
+
+  <div class="flex items-center justify-between mb-4">
+    <div>
+      <h2 class="text-2xl font-semibold">Shop by Category</h2>
+      <p class="text-sm text-gray-600">
+        Premium Wooden Furniture — Crafted for Modern Homes
+      </p>
+    </div>
+
+    <a href="categories.html" class="text-sm text-amber-700 font-medium">
+      See all categories →
+    </a>
+  </div>
+
+  <!-- GRID -->
+  <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-4">
+
+    <!-- SOFAS -->
+    <a href="products.html?cat=sofa">
+      <div class="bg-white rounded-xl p-3 text-center shadow hover:shadow-lg transition">
+        <img src=https://www.urbanwood.in/assets/image/popular-items/sofa-set.webp?auto=format&fit=crop&w=800&q=80"
+             class="w-full h-36 object-cover rounded">
+        <div class="mt-2 font-medium">Sofas</div>
+      </div>
+    </a>
+
+    <!-- BEDS -->
+    <a href="products.html?cat=bed">
+      <div class="bg-white rounded-xl p-3 text-center shadow hover:shadow-lg transition">
+        <img src=https://www.urbanwood.in/assets/image/popular-items/bed.webp?auto=format&fit=crop&w=800&q=80"
+             class="w-full h-36 object-cover rounded">
+        <div class="mt-2 font-medium">Beds</div>
+      </div>
+    </a>
+
+    <!-- DINING -->
+    <a href="products.html?cat=dining">
+      <div class="bg-white rounded-xl p-3 text-center shadow hover:shadow-lg transition">
+        <img src=https://www.urbanwood.in//image/cache/catalog/Dining%20Sets/Relay%206-seater%20dining%20set/Honey/honey1-746x522.jpg?auto=format&fit=crop&w=800&q=80"
+             class="w-full h-36 object-cover rounded">
+        <div class="mt-2 font-medium">Dining</div>
+      </div>
+    </a>
+
+    <!-- TV UNIT -->
+    <a href="products.html?cat=tv">
+      <div class="bg-white rounded-xl p-3 text-center shadow hover:shadow-lg transition">
+        <img src=https://www.urbanwood.in//image/cache/catalog/tv-units/relay/honey/honey-look-1-746x522.jpg?auto=format&fit=crop&w=800&q=80"
+             class="w-full h-36 object-cover rounded">
+        <div class="mt-2 font-medium">TV Units</div>
+      </div>
+    </a>
+
+    <!-- COFFEE TABLE -->
+    <a href="products.html?cat=coffee">
+      <div class="bg-white rounded-xl p-3 text-center shadow hover:shadow-lg transition">
+        <img src=https://www.urbanwood.in//image/cache/catalog/coffee-tables/crew/honey/honey-2-746x522.jpg?auto=format&fit=crop&w=800&q=80"
+             class="w-full h-36 object-cover rounded">
+        <div class="mt-2 font-medium">Coffee Tables</div>
+      </div>
+    </a>
+
+    <!-- CHAIRS -->
+    <a href="products.html?cat=chair">
+      <div class="bg-white rounded-xl p-3 text-center shadow hover:shadow-lg transition">
+        <img src=https://cdn.swadeshonline.com/v2/patient-paper-41f385/swad-p/wrkr/products/pictures/item/free/450x0/_ufbmCa7Va-0.jpg?auto=format&fit=crop&w=800&q=80"
+             class="w-full h-36 object-cover rounded">
+        <div class="mt-2 font-medium">Chairs</div>
+      </div>
+    </a>
+
+    <!-- WARDROBES -->
+    <a href="products.html?cat=wardrobe">
+      <div class="bg-white rounded-xl p-3 text-center shadow hover:shadow-lg transition">
+        <img src="https://cdn.swadeshonline.com/v2/patient-paper-41f385/swad-p/wrkr/products/pictures/item/free/450x0/UOudxmh2--Fidora-Wardrobe-in-Teak-Finish.jpeg?auto=format&fit=crop&w=800&q=80"
+             class="w-full h-36 object-cover rounded">
+        <div class="mt-2 font-medium">Wardrobes</div>
+      </div>
+    </a>
+
+    <!-- STUDY -->
+    <a href="products.html?cat=study">
+      <div class="bg-white rounded-xl p-3 text-center shadow hover:shadow-lg transition">
+        <img src=https://www.urbanwood.in/assets/image/popular-items/studytables.webp?auto=format&fit=crop&w=800&q=80"
+             class="w-full h-36 object-cover rounded">
+        <div class="mt-2 font-medium">Study Tables</div>
+      </div>
+    </a>
+
+    <!-- STORAGE -->
+    <a href="products.html?cat=storage">
+      <div class="bg-white rounded-xl p-3 text-center shadow hover:shadow-lg transition">
+        <img src=https://www.urbanwood.in/assets/image/shopby-room/storage/storage_2_410x328.webp?auto=format&fit=crop&w=800&q=80"
+             class="w-full h-36 object-cover rounded">
+        <div class="mt-2 font-medium">Storage</div>
+      </div>
+    </a>
+
+    
+
+</section>
+
+    <!-- EXPLORE STORAGE (like storage/wardrobe module) -->
+    <section class="mt-12 bg-white rounded-lg p-6 card-shadow">
+      <div class="flex flex-col lg:flex-row lg:items-center lg:justify-between gap-6">
+        <div class="lg:w-2/3">
+          <h3 class="text-xl font-semibold">Explore Storage Solutions</h3>
+          <p class="text-sm text-gray-600 mt-2">Floor-to-ceiling wardrobes, shoe racks, TV units and customised lofts.</p>
+        </div>
+        <div class="flex gap-3">
+          <a href="#categories" class="px-4 py-2 rounded border text-sm">Browse storage</a>
+          <a href="https://wa.me/919381049087" class="px-4 py-2 rounded bg-wood-700 text-white text-sm">Request quote</a>
+        </div>
+      </div>
+    </section>
+
+   
+
+    <!-- WHY US / BENEFITS (like UrbanWood value boxes) -->
+    <section class="mt-12 bg-white rounded-lg p-6 card-shadow">
+      <div class="grid md:grid-cols-4 gap-6 text-center">
+        <div>
+          <div class="text-3xl font-bold text-wood-700">Quality</div>
+          <p class="text-sm text-gray-600 mt-2">Solid materials, neat finishes & longevity.</p>
+        </div>
+        <div>
+          <div class="text-3xl font-bold text-wood-700">Customization</div>
+          <p class="text-sm text-gray-600 mt-2">Made to your size, shade & style.</p>
+        </div>
+        <div>
+          <div class="text-3xl font-bold text-wood-700">Site Visits</div>
+          <p class="text-sm text-gray-600 mt-2">Measurements & execution planning included.</p>
+        </div>
+        <div>
+          <div class="text-3xl font-bold text-wood-700">Bulk Delivery</div>
+          <p class="text-sm text-gray-600 mt-2">Projects for cafés, offices & hotels.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- TESTIMONIALS (simple slider) -->
+    <section class="mt-12">
+  <h2 class="text-2xl font-semibold mb-4">Customer Stories</h2>
+
+  <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+
+    <div class="bg-white rounded-lg overflow-hidden shadow">
+      <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?q=80&w=800&auto=format&fit=crop"
+           class="w-full h-48 object-cover">
+      <div class="p-3 text-sm text-gray-600">
+        Beautiful sofa set for our living room ❤️
+      </div>
+    </div>
+
+    <div class="bg-white rounded-lg overflow-hidden shadow">
+      <img src="https://images.unsplash.com/photo-1505693416388-ac5ce068fe85?q=80&w=800&auto=format&fit=crop"
+           class="w-full h-48 object-cover">
+      <div class="p-3 text-sm text-gray-600">
+        Perfect wooden bed quality 👌
+      </div>
+    </div>
+
+    <div class="bg-white rounded-lg overflow-hidden shadow">
+      <img src="https://images.unsplash.com/photo-1598300053694-1bb64063b1b5?q=80&w=800&auto=format&fit=crop"
+           class="w-full h-48 object-cover">
+      <div class="p-3 text-sm text-gray-600">
+        Loved the dining table finish 🔥
+      </div>
+    </div>
+
+    <div class="bg-white rounded-lg overflow-hidden shadow">
+      <img src="https://images.unsplash.com/photo-1519710164239-da123dc03ef4?q=80&w=800&auto=format&fit=crop"
+           class="w-full h-48 object-cover">
+      <div class="p-3 text-sm text-gray-600">
+        Study table is super comfortable 👍
+      </div>
+    </div>
+
+  </div>
+</section>
+
+    <!-- INSTAGRAM GRID (replace with your images later) -->
+    <section class="mt-12">
+      <div class="flex items-center justify-between mb-4">
+        <h4 class="text-lg font-semibold">Instagram Gallery</h4>
+        <a href="#" class="text-sm text-wood-700">Open Instagram →</a>
+      </div>
+      <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+        <img src="https://images.unsplash.com/photo-1545239351-1141bd82e8a6?q=80&w=800&auto=format&fit=crop" class="h-36 object-cover rounded" alt="">
+        <img src="https://images.unsplash.com/photo-1595526114035-0d45ed16cfbf?q=80&w=800&auto=format&fit=crop" class="h-36 object-cover rounded" alt="">
+        <img src="https://images.unsplash.com/photo-1582719478250-c89cae4dc85b?q=80&w=800&auto=format&fit=crop" class="h-36 object-cover rounded" alt="">
+        <img src="https://images.unsplash.com/photo-1582719478250-cc77c9e0eeb7?q=80&w=800&auto=format&fit=crop" class="h-36 object-cover rounded" alt="">
+      </div>
+    </section>
+
+    <!-- CONTACT / FOOTER -->
+    <footer id="contact" class="mt-12 bg-gray-900 text-gray-200 rounded-lg p-8">
+      <div class="max-w-7xl mx-auto grid md:grid-cols-3 gap-6">
+        <div>
+          <div class="flex items-center gap-3">
+            <div class="w-10 h-10 rounded bg-white text-wood-700 flex items-center justify-center font-bold">RR</div>
+            <div>
+              <div class="font-semibold">RR Furnitures</div>
+              <div class="text-xs text-gray-400">Wooden Interiors & Furniture</div>
+            </div>
+          </div>
+          <p class="text-sm text-gray-400 mt-4">We create functional & beautiful wooden interiors for homes and businesses.</p>
+        </div>
+
+        <div>
+          <h5 class="font-semibold">Contact</h5>
+          <p class="text-sm text-gray-400 mt-2">📞 <a href="tel:+919381049087" class="hover:underline">+91 93810 49087</a></p>
+          <p class="text-sm text-gray-400">📧 rr.furnitures@gmail.com</p>
+          <p class="text-sm text-gray-400 mt-2">📍 Andhra Pradesh, India</p>
+        </div>
+
+        <div>
+          <h5 class="font-semibold">Request Callback</h5>
+          <form id="contactForm" class="mt-3 space-y-3">
+            <input name="name" type="text" placeholder="Your name" class="w-full px-3 py-2 rounded bg-gray-800 text-white" />
+            <input name="phone" type="tel" placeholder="Phone number" class="w-full px-3 py-2 rounded bg-gray-800 text-white" />
+            <textarea name="msg" rows="3" placeholder="Short message" class="w-full px-3 py-2 rounded bg-gray-800 text-white"></textarea>
+            <button type="button" id="submitBtn" class="w-full bg-wood-700 px-3 py-2 rounded text-white">Submit (Demo)</button>
+          </form>
+        </div>
+      </div>
+
+      <div class="text-center text-xs text-gray-500 mt-6">© <span id="year"></span> RR Furnitures • All rights reserved</div>
+    </footer>
+  </main>
+
+  <!-- FLOATING WHATSAPP -->
+<div class="floating-whatsapp">
+  <a href="https://wa.me/919381049087?text=Hello%20RR%20Furnitures,%0A%0AI%E2%80%99m%20interested%20in%20your%20furniture%20products.%0ACan%20you%20please%20share%20more%20details%20regarding%20pricing,%20customization,%20and%20availability?%0A%0AThank%20you."
+   target="_blank"
+   class="bg-green-500 px-4 py-3 rounded-full flex items-center gap-2 shadow-lg text-white hover:bg-green-600 transition">
+
+  <svg class="w-5 h-5" viewBox="0 0 24 24" fill="currentColor">
+    <path d="M20.5 3.5c-2-2-5.1-2-7 0L7.2 9.2a4.8 4.8 0 0 0-1.2 4.8L5 18.6l4.6-1.1c1.7-.4 3.5.1 4.8 1.4l6.3 6.3c2 2 5.1 2 7 0 2-2 2-5.1 0-7L20.5 3.5z"/>
+  </svg>
+
+  <span class="text-sm font-medium">WhatsApp</span>
+</a>
+</div>
+<!-- REQUEST CALL TAB -->
+<div class="request-tab">
+  <a href="tel:+919381049087"
+     class="block bg-gray-900 text-white px-4 py-2 rounded-l-lg">
+    REQUEST CALL
+  </a>
+</div>
+
+  <!-- SCRIPTS: slider, products, interactivity -->
+  <script>
+    // footer year
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    // mobile menu toggle
+    document.getElementById('mobileMenuBtn').addEventListener('click', () => {
+      const m = document.getElementById('mobileNav');
+      m.classList.toggle('hidden');
+    });
+
+    /* ---------- HERO SLIDER ---------- */
+const heroSlides = [
+  {
+    img: 'https://images.unsplash.com/photo-1600585154340-be6161a56a0c?q=80&w=1600&auto=format&fit=crop',
+    title: 'Custom Wooden Interiors',
+    subtitle: 'Kitchens • Bedrooms • Living • Cupboards'
+  },
+  {
+    img: 'https://images.unsplash.com/photo-1598300053694-1bb64063b1b5?q=80&w=1600&auto=format&fit=crop',
+    title: 'Handcrafted Furniture',
+    subtitle: 'Tables • Chairs • Cabinets'
+  },
+  {
+    img: 'https://images.unsplash.com/photo-1582719478250-c89cae4dc85b?q=80&w=1600&auto=format&fit=crop',
+    title: 'Commercial Projects',
+    subtitle: 'Cafés • Restaurants • Offices'
+  }
+];
+
+let heroIndex = 0;
+const heroEl = document.getElementById('heroSlider');
+
+function renderHero() {
+  heroEl.innerHTML = '';
+
+  const s = heroSlides[heroIndex];
+
+  const slide = document.createElement('div');
+  slide.className = 'absolute inset-0 transition-opacity duration-700 opacity-100';
+
+  slide.innerHTML = `
+    <!-- IMAGE -->
+    <img src="${s.img}" class="w-full h-full object-cover" alt="${s.title}">
+
+    <!-- DARK OVERLAY -->
+    <div class="absolute inset-0 bg-black/30"></div>
+
+    <!-- 🔥 CENTER BRAND -->
+    <div class="absolute inset-0 flex items-center justify-center">
+      <div class="bg-black/40 backdrop-blur-sm px-8 py-6 rounded-xl text-center">
+        
+        <h1 class="text-4xl md:text-6xl font-bold text-white tracking-wide">
+          RR Furnitures
+        </h1>
+
+        <p class="mt-2 text-sm md:text-base text-gray-200">
+          Premium Wooden Furniture for Modern Homes
+        </p>
+
+      </div>
+    </div>
+
+    <!-- LEFT CONTENT CARD -->
+    <div class="absolute left-6 bottom-6 bg-white/90 rounded p-4 shadow max-w-lg">
+      <h2 class="text-xl font-bold text-gray-800">${s.title}</h2>
+      <p class="text-sm text-gray-600 mt-1">${s.subtitle}</p>
+
+      <div class="mt-3">
+        <a href="#categories" class="inline-block px-3 py-2 rounded bg-wood-700 text-white text-sm">
+          Explore
+        </a>
+        <a href="https://wa.me/919381049087"
+           class="ml-2 inline-block px-3 py-2 rounded border text-sm">
+          Chat
+        </a>
+      </div>
+    </div>
+  `;
+
+  heroEl.appendChild(slide);
+}
+
+// INIT
+renderHero();
+
+// AUTO SLIDE
+setInterval(() => {
+  heroIndex = (heroIndex + 1) % heroSlides.length;
+  renderHero();
+}, 4800);
+    /* ---------- SAMPLE PRODUCTS (static) ---------- */
+    const sampleProducts = [
+      {id:'p1', name:'Royal Dining Set', price:24999, img:'https://images.unsplash.com/photo-1600585152240-0b0f0fd9f7a9?q=80&w=800&auto=format&fit=crop', stock:8},
+      {id:'p2', name:'Heritage Bed', price:29999, img:'https://images.unsplash.com/photo-1598300055727-2f9b6de6ad20?q=80&w=800&auto=format&fit=crop', stock:5},
+      {id:'p3', name:'Classic TV Unit', price:14999, img:'https://images.unsplash.com/photo-1567016527858-96a9c5a6a2b2?q=80&w=800&auto=format&fit=crop', stock:10},
+      {id:'p4', name:'Study Corner Table', price:7999, img:'https://images.unsplash.com/photo-1519710164239-da123dc03ef4?q=80&w=800&auto=format&fit=crop', stock:20},
+      {id:'p5', name:'Solid Wood Cupboard', price:17999, img:'https://images.unsplash.com/photo-1570129477492-45c003edd2be?q=80&w=800&auto=format&fit=crop', stock:6},
+      {id:'p6', name:'Dining Bench', price:6999, img:'https://images.unsplash.com/photo-1549187774-b4e9f0443d64?q=80&w=800&auto=format&fit=crop', stock:14}
+    ];
+
+    const productsGrid = document.getElementById('productsGrid');
+    function renderProducts(list = sampleProducts) {
+      productsGrid.innerHTML = '';
+      list.forEach(p => {
+        const card = document.createElement('article');
+        card.className = 'bg-white rounded-lg overflow-hidden card-shadow';
+        card.innerHTML = `
+          <div class="h-48 overflow-hidden"><img src="${p.img}" class="w-full h-full object-cover" alt="${p.name}"></div>
+          <div class="p-4">
+            <h3 class="font-semibold">${p.name}</h3>
+            <div class="mt-2 flex items-center justify-between">
+              <div>
+                <div class="text-wood-700 font-bold">₹${p.price.toLocaleString()}</div>
+                <div class="text-xs text-gray-500">Stock: ${p.stock}</div>
+              </div>
+              <div class="flex flex-col gap-2">
+                <a href="product.html?id=${p.id}" class="px-3 py-2 border rounded text-sm">View</a>
+                <button onclick='addToCart("${p.id}")' class="px-3 py-2 rounded bg-wood-700 text-white text-sm">Add</button>
+              </div>
+            </div>
+          </div>
+        `;
+        productsGrid.appendChild(card);
+      });
+    }
+    renderProducts();
+
+    // basic cart (local)
+    function addToCart(id) {
+      let cart = JSON.parse(localStorage.getItem('cart') || '[]');
+      const item = sampleProducts.find(x=>x.id===id);
+      if(!item) return alert('Product not found');
+      cart.push(item);
+      localStorage.setItem('cart', JSON.stringify(cart));
+      alert('Added to cart (demo)');
+    }
+    window.addToCart = addToCart;
+
+    // demo contact submit (no backend)
+    document.getElementById('submitBtn').addEventListener('click', () => {
+      alert('Thanks! This is demo submit. We will integrate Firebase / email next.');
+    });
+
+    // simple search (client side)
+    document.getElementById('search').addEventListener('keydown', (e) => {
+      if (e.key === 'Enter') document.getElementById('searchBtn').click();
+    });
+    document.getElementById('searchBtn').addEventListener('click', () => {
+      const q = document.getElementById('search').value.trim().toLowerCase();
+      if(!q) return renderProducts();
+      const filtered = sampleProducts.filter(p => (p.name + '').toLowerCase().includes(q));
+      renderProducts(filtered);
+      if(filtered.length === 0) productsGrid.innerHTML = '<div class="col-span-full text-center text-gray-500 py-8">No products matched.</div>';
+    });
+
+    // mobile nav closing when clicking outside (optional)
+    document.addEventListener('click', (e) => {
+      const mobileNav = document.getElementById('mobileNav');
+      const btn = document.getElementById('mobileMenuBtn');
+      if (!btn.contains(e.target) && !mobileNav.contains(e.target)) {
+        if (!mobileNav.classList.contains('hidden')) mobileNav.classList.add('hidden');
+      }
+    });
+  </script>
+  <script type="module">
+
+import { getAllProducts } from "./firebase.js";
+
+const grid = document.getElementById("productsGrid");
+
+// 🔥 LOAD PRODUCTS FROM FIREBASE
+async function loadProducts() {
+  const products = await getAllProducts();
+
+  grid.innerHTML = "";
+
+  products.forEach(p => {
+    const card = document.createElement("div");
+    card.className = "bg-white p-4 rounded shadow";
+
+    card.innerHTML = `
+      <img src="${p.img}" class="h-40 w-full object-cover rounded">
+      <h3 class="mt-2 font-semibold">${p.name}</h3>
+      <p class="text-wood-700 font-bold">₹${p.price}</p>
+    `;
+
+    grid.appendChild(card);
+  });
+}
+
+loadProducts();
+
+</script><script>
+const btn = document.getElementById("homeBtn");
+const menu = document.getElementById("homeMenu");
+
+btn.addEventListener("click", () => {
+  menu.classList.toggle("hidden");
+});
+</script>
+
+</body>
+</html>
