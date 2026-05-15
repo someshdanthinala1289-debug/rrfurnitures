@@ -9,79 +9,340 @@
 
   <style>
     .card-shadow {
-      box-shadow: 0 8px 28px rgba(15, 23, 42, 0.1);
+      box-shadow: 0 10px 30px rgba(15, 23, 42, 0.1);
+    }
+
+    .tab-active {
+      background: #111827;
+      color: white;
+    }
+
+    .tab-inactive {
+      background: white;
+      color: #475569;
+      border: 1px solid #e2e8f0;
     }
   </style>
 </head>
-<body class="bg-gray-100 text-gray-800">
-  <header class="bg-white shadow">
-    <div class="mx-auto flex max-w-6xl items-center justify-between px-4 py-4">
-      <h1 class="text-xl font-bold">RR Furnitures - Admin Panel</h1>
-      <a href="index.html" class="rounded bg-gray-800 px-4 py-2 text-white">Back</a>
+<body class="bg-slate-100 text-slate-800">
+  <header class="border-b border-slate-200 bg-white shadow-sm">
+    <div class="mx-auto flex max-w-7xl items-center justify-between px-4 py-4 sm:px-6">
+      <div>
+        <p class="text-xs font-semibold uppercase tracking-[0.25em] text-amber-700">RR Furnitures</p>
+        <h1 class="text-xl font-bold text-slate-900 sm:text-2xl">Content Admin Panel</h1>
+      </div>
+      <a href="index.html" class="rounded-xl bg-slate-900 px-4 py-2 text-sm font-medium text-white">Back to Site</a>
     </div>
   </header>
 
-  <main class="mx-auto max-w-6xl px-4 py-10">
-    <section class="mb-8 rounded-lg bg-white p-6 card-shadow">
-      <h2 class="mb-4 text-lg font-semibold">Add / Edit Product</h2>
-
-      <div class="grid gap-4 md:grid-cols-2">
-        <input id="pName" placeholder="Product Name" class="rounded border p-3">
-        <input id="pPrice" type="number" placeholder="Price" class="rounded border p-3">
-        <input id="pStock" type="number" placeholder="Stock" class="rounded border p-3">
-        <input id="pImg" placeholder="Image URL" class="rounded border p-3">
-        <select id="pCategory" class="rounded border p-3 bg-white">
-          <option value="">Select Category</option>
-          <option value="sofa">Sofa</option>
-          <option value="bed">Bed</option>
-          <option value="dining">Dining</option>
-          <option value="table">Table</option>
-          <option value="chair">Chair</option>
-          <option value="wardrobe">Wardrobe</option>
-          <option value="tv">TV Unit</option>
-          <option value="study">Study</option>
-          <option value="storage">Storage</option>
-        </select>
-        <textarea id="pDesc" placeholder="Description" class="rounded border p-3 md:col-span-2"></textarea>
+  <main class="mx-auto max-w-7xl px-4 py-8 sm:px-6 sm:py-10">
+    <section class="mb-6 rounded-[1.75rem] bg-white p-4 card-shadow sm:p-5">
+      <div class="flex flex-wrap gap-3">
+        <button type="button" data-tab="products" onclick="setAdminTab('products')" class="admin-tab tab-active rounded-full px-5 py-3 text-sm font-semibold">Products</button>
+        <button type="button" data-tab="stories" onclick="setAdminTab('stories')" class="admin-tab tab-inactive rounded-full px-5 py-3 text-sm font-semibold">Stories</button>
+        <button type="button" data-tab="projects" onclick="setAdminTab('projects')" class="admin-tab tab-inactive rounded-full px-5 py-3 text-sm font-semibold">Projects</button>
       </div>
-
-      <div class="mt-4 flex flex-wrap gap-3">
-        <button id="addBtn" class="rounded bg-green-600 px-6 py-3 text-white">
-          Add Product
-        </button>
-        <button id="seedBtn" type="button" class="rounded bg-amber-600 px-6 py-3 text-white">
-          Add Demo Products
-        </button>
+      <p class="mt-4 text-sm leading-6 text-slate-500">
+        Products are for the catalog and product detail pages. Stories are for inspiration sections and customer moments.
+        Projects are better for completed works, portfolios, or galleries linked from the homepage.
+      </p>
+      <div id="adminStatus" class="mt-4 rounded-xl border border-slate-200 bg-slate-50 px-4 py-3 text-sm text-slate-600">
+        Initializing admin panel...
       </div>
     </section>
 
-    <section>
-      <h2 class="mb-4 text-xl font-semibold">All Products</h2>
-      <div id="productsList" class="grid gap-6 sm:grid-cols-2 lg:grid-cols-3"></div>
+    <section id="tab-products" class="admin-panel space-y-6">
+      <div class="rounded-[1.75rem] bg-white p-5 card-shadow sm:p-6">
+        <div class="flex flex-col gap-2 sm:flex-row sm:items-end sm:justify-between">
+          <div>
+            <h2 class="text-xl font-semibold text-slate-900">Add / Edit Product</h2>
+            <p class="text-sm text-slate-500">Use one main image and as many extra gallery images as you want.</p>
+          </div>
+          <span class="rounded-full bg-amber-50 px-3 py-2 text-xs font-medium text-amber-900">Best for catalog pages</span>
+        </div>
+
+        <div class="mt-5 grid gap-4 md:grid-cols-2">
+          <input id="pName" placeholder="Product Name" class="rounded-xl border border-slate-200 p-3">
+          <input id="pPrice" type="number" placeholder="Price" class="rounded-xl border border-slate-200 p-3">
+          <input id="pStock" type="number" placeholder="Stock" class="rounded-xl border border-slate-200 p-3">
+          <input id="pImg" placeholder="Main Image URL or local path" class="rounded-xl border border-slate-200 p-3">
+          <select id="pCategory" class="rounded-xl border border-slate-200 bg-white p-3">
+            <option value="">Select Category</option>
+            <option value="sofa">Sofa</option>
+            <option value="bed">Bed</option>
+            <option value="dining">Dining</option>
+            <option value="table">Table</option>
+            <option value="chair">Chair</option>
+            <option value="wardrobe">Wardrobe</option>
+            <option value="tv">TV Unit</option>
+            <option value="study">Study</option>
+            <option value="storage">Storage</option>
+          </select>
+          <input id="pTagline" placeholder="Short highlight text (optional)" class="rounded-xl border border-slate-200 p-3">
+          <details class="rounded-xl border border-slate-200 bg-slate-50 p-4 md:col-span-2">
+            <summary class="cursor-pointer text-sm font-semibold text-slate-700">Additional Gallery Image URLs</summary>
+            <p class="mt-3 text-xs leading-5 text-slate-500">
+              Put one link or local path on each line. Example:
+              <code>assets/products/sofa-side.jpg</code>
+            </p>
+            <textarea
+              id="pImageLinks"
+              placeholder="assets/products/sofa-side.jpg&#10;assets/products/sofa-close.jpg&#10;assets/products/sofa-room-view.jpg"
+              class="mt-3 min-h-[140px] w-full rounded-xl border border-slate-200 p-3"
+            ></textarea>
+          </details>
+          <textarea id="pDesc" placeholder="Description" class="rounded-xl border border-slate-200 p-3 md:col-span-2"></textarea>
+        </div>
+
+        <div class="mt-5 rounded-xl border border-amber-100 bg-amber-50 px-4 py-3 text-sm text-amber-900">
+          <p class="font-semibold">Recommended image method</p>
+          <p class="mt-1 leading-6">
+            Save photos inside <code>assets/products/</code> and use paths like
+            <code>assets/products/sofa-main.jpg</code> instead of external hosting links.
+          </p>
+        </div>
+
+        <div class="mt-5 flex flex-wrap gap-3">
+          <button id="addBtn" class="rounded-xl bg-green-600 px-6 py-3 text-sm font-semibold text-white">Add Product</button>
+          <button id="seedBtn" type="button" class="rounded-xl bg-amber-600 px-6 py-3 text-sm font-semibold text-white">Add Demo Products</button>
+        </div>
+      </div>
+
+      <div class="rounded-[1.75rem] bg-white p-5 card-shadow sm:p-6">
+        <h3 class="text-xl font-semibold text-slate-900">All Products</h3>
+        <div id="productsList" class="mt-5 grid gap-6 sm:grid-cols-2 xl:grid-cols-3"></div>
+      </div>
+    </section>
+
+    <section id="tab-stories" class="admin-panel hidden space-y-6">
+      <div class="rounded-[1.75rem] bg-white p-5 card-shadow sm:p-6">
+        <div class="flex flex-col gap-2 sm:flex-row sm:items-end sm:justify-between">
+          <div>
+            <h2 class="text-xl font-semibold text-slate-900">Add / Edit Story</h2>
+            <p class="text-sm text-slate-500">Perfect for customer stories, inspiration blocks, or Instagram-style highlights.</p>
+          </div>
+          <span class="rounded-full bg-sky-50 px-3 py-2 text-xs font-medium text-sky-900">Best for homepage sliders</span>
+        </div>
+
+        <div class="mt-5 grid gap-4 md:grid-cols-2">
+          <input id="sTitle" placeholder="Story Title" class="rounded-xl border border-slate-200 p-3">
+          <input id="sImage" placeholder="Story Image URL or local path" class="rounded-xl border border-slate-200 p-3">
+          <input id="sTag" placeholder="Tag / Label (optional)" class="rounded-xl border border-slate-200 p-3">
+          <input id="sCta" placeholder="CTA Text (optional)" class="rounded-xl border border-slate-200 p-3">
+          <textarea id="sDesc" placeholder="Short story description" class="rounded-xl border border-slate-200 p-3 md:col-span-2"></textarea>
+        </div>
+
+        <div class="mt-5 flex flex-wrap gap-3">
+          <button id="storyBtn" class="rounded-xl bg-sky-600 px-6 py-3 text-sm font-semibold text-white">Add Story</button>
+          <button id="seedStoriesBtn" type="button" class="rounded-xl bg-slate-900 px-6 py-3 text-sm font-semibold text-white">Add Demo Stories</button>
+        </div>
+      </div>
+
+      <div class="rounded-[1.75rem] bg-white p-5 card-shadow sm:p-6">
+        <h3 class="text-xl font-semibold text-slate-900">All Stories</h3>
+        <div id="storiesList" class="mt-5 grid gap-6 sm:grid-cols-2 xl:grid-cols-3"></div>
+      </div>
+    </section>
+
+    <section id="tab-projects" class="admin-panel hidden space-y-6">
+      <div class="rounded-[1.75rem] bg-white p-5 card-shadow sm:p-6">
+        <div class="flex flex-col gap-2 sm:flex-row sm:items-end sm:justify-between">
+          <div>
+            <h2 class="text-xl font-semibold text-slate-900">Add / Edit Project</h2>
+            <p class="text-sm text-slate-500">Use projects for completed homes, office works, wardrobes, kitchens, or portfolio galleries.</p>
+          </div>
+          <span class="rounded-full bg-emerald-50 px-3 py-2 text-xs font-medium text-emerald-900">Best for old work / portfolio</span>
+        </div>
+
+        <div class="mt-5 grid gap-4 md:grid-cols-2">
+          <input id="jTitle" placeholder="Project Title" class="rounded-xl border border-slate-200 p-3">
+          <input id="jCover" placeholder="Cover Image URL or local path" class="rounded-xl border border-slate-200 p-3">
+          <input id="jType" placeholder="Project Type (Bedroom, Cafe, Wardrobe...)" class="rounded-xl border border-slate-200 p-3">
+          <input id="jLocation" placeholder="Location (optional)" class="rounded-xl border border-slate-200 p-3">
+          <input id="jYear" placeholder="Year / Duration (optional)" class="rounded-xl border border-slate-200 p-3">
+          <input id="jStatus" placeholder="Status (Completed, Ongoing...)" class="rounded-xl border border-slate-200 p-3">
+          <details class="rounded-xl border border-slate-200 bg-slate-50 p-4 md:col-span-2">
+            <summary class="cursor-pointer text-sm font-semibold text-slate-700">Project Gallery Image URLs</summary>
+            <p class="mt-3 text-xs leading-5 text-slate-500">
+              Add one gallery path per line if this project should open as a richer showcase later.
+            </p>
+            <textarea
+              id="jImages"
+              placeholder="assets/projects/project-1.jpg&#10;assets/projects/project-2.jpg"
+              class="mt-3 min-h-[140px] w-full rounded-xl border border-slate-200 p-3"
+            ></textarea>
+          </details>
+          <textarea id="jDesc" placeholder="Project summary" class="rounded-xl border border-slate-200 p-3 md:col-span-2"></textarea>
+        </div>
+
+        <div class="mt-5 flex flex-wrap gap-3">
+          <button id="projectBtn" class="rounded-xl bg-emerald-600 px-6 py-3 text-sm font-semibold text-white">Add Project</button>
+          <button id="seedProjectsBtn" type="button" class="rounded-xl bg-slate-900 px-6 py-3 text-sm font-semibold text-white">Add Demo Projects</button>
+        </div>
+      </div>
+
+      <div class="rounded-[1.75rem] bg-white p-5 card-shadow sm:p-6">
+        <h3 class="text-xl font-semibold text-slate-900">All Projects</h3>
+        <div id="projectsList" class="mt-5 grid gap-6 sm:grid-cols-2 xl:grid-cols-3"></div>
+      </div>
     </section>
   </main>
 
+  <script>
+    window.setAdminTab = function setAdminTab(tabName) {
+      document.querySelectorAll(".admin-tab").forEach((tab) => {
+        const isActive = tab.dataset.tab === tabName;
+        tab.classList.toggle("tab-active", isActive);
+        tab.classList.toggle("tab-inactive", !isActive);
+      });
+
+      document.querySelectorAll(".admin-panel").forEach((panel) => {
+        panel.classList.toggle("hidden", panel.id !== `tab-${tabName}`);
+      });
+    };
+  </script>
+
   <script type="module">
-    import {
-      addProduct,
-      getAllProducts,
-      deleteProduct,
-      updateProduct
-    } from "./firebase.js";
+    (async function initAdmin() {
+      const adminStatus = document.getElementById("adminStatus");
 
-    const listEl = document.getElementById("productsList");
-    const addBtn = document.getElementById("addBtn");
-    const seedBtn = document.getElementById("seedBtn");
+      function setStatus(message, tone = "neutral") {
+        adminStatus.textContent = message;
+        adminStatus.className = "mt-4 rounded-xl px-4 py-3 text-sm";
 
-    let editId = null;
+        if (tone === "success") {
+          adminStatus.classList.add("border", "border-emerald-200", "bg-emerald-50", "text-emerald-800");
+        } else if (tone === "error") {
+          adminStatus.classList.add("border", "border-red-200", "bg-red-50", "text-red-700");
+        } else {
+          adminStatus.classList.add("border", "border-slate-200", "bg-slate-50", "text-slate-600");
+        }
+      }
 
-    function resetForm() {
+      let addProduct;
+      let addProject;
+      let addStory;
+      let deleteProduct;
+      let deleteProject;
+      let deleteStory;
+      let getAllProducts;
+      let getAllProjects;
+      let getAllStories;
+      let updateProduct;
+      let updateProject;
+      let updateStory;
+
+      try {
+        ({
+          addProduct,
+          addProject,
+          addStory,
+          deleteProduct,
+          deleteProject,
+          deleteStory,
+          getAllProducts,
+          getAllProjects,
+          getAllStories,
+          updateProduct,
+          updateProject,
+          updateStory
+        } = await import("./firebase.js?v=20260515-2"));
+
+        const requiredFunctions = {
+          addProduct,
+          addProject,
+          addStory,
+          deleteProduct,
+          deleteProject,
+          deleteStory,
+          getAllProducts,
+          getAllProjects,
+          getAllStories,
+          updateProduct,
+          updateProject,
+          updateStory
+        };
+
+        const missingFunctions = Object.entries(requiredFunctions)
+          .filter(([, value]) => typeof value !== "function")
+          .map(([key]) => key);
+
+        if (missingFunctions.length) {
+          throw new Error(`Missing Firebase functions: ${missingFunctions.join(", ")}`);
+        }
+
+        setStatus("Admin panel connected. You can now manage products, stories, and projects.", "success");
+      } catch (error) {
+        console.error(error);
+        setStatus(`Admin failed to load Firebase tools: ${error.message || "Unknown error"}`, "error");
+        return;
+      }
+
+      const productListEl = document.getElementById("productsList");
+      const storyListEl = document.getElementById("storiesList");
+      const projectListEl = document.getElementById("projectsList");
+
+      const addBtn = document.getElementById("addBtn");
+      const seedBtn = document.getElementById("seedBtn");
+      const storyBtn = document.getElementById("storyBtn");
+      const seedStoriesBtn = document.getElementById("seedStoriesBtn");
+      const projectBtn = document.getElementById("projectBtn");
+      const seedProjectsBtn = document.getElementById("seedProjectsBtn");
+
+      let editProductId = null;
+      let editStoryId = null;
+      let editProjectId = null;
+
+    function makeUniqueList(items) {
+      return items.filter(Boolean).filter((item, index, list) => list.indexOf(item) === index);
+    }
+
+    function renderLoading(element, label) {
+      element.innerHTML = `
+        <div class="col-span-full flex flex-col items-center justify-center rounded-3xl bg-slate-50 px-6 py-12 text-center">
+          <div class="h-10 w-10 animate-spin rounded-full border-4 border-slate-200 border-t-amber-600"></div>
+          <p class="mt-4 text-sm font-medium text-slate-700">Loading ${label}...</p>
+          <p class="mt-1 text-xs text-slate-500">Please wait a moment.</p>
+        </div>
+      `;
+    }
+
+    const setActiveTab = window.setAdminTab;
+
+    function resetProductForm() {
       document.getElementById("pName").value = "";
       document.getElementById("pPrice").value = "";
       document.getElementById("pStock").value = "";
       document.getElementById("pImg").value = "";
-      document.getElementById("pDesc").value = "";
       document.getElementById("pCategory").value = "";
+      document.getElementById("pTagline").value = "";
+      document.getElementById("pImageLinks").value = "";
+      document.getElementById("pDesc").value = "";
+      editProductId = null;
+      addBtn.textContent = "Add Product";
+    }
+
+    function resetStoryForm() {
+      document.getElementById("sTitle").value = "";
+      document.getElementById("sImage").value = "";
+      document.getElementById("sTag").value = "";
+      document.getElementById("sCta").value = "";
+      document.getElementById("sDesc").value = "";
+      editStoryId = null;
+      storyBtn.textContent = "Add Story";
+    }
+
+    function resetProjectForm() {
+      document.getElementById("jTitle").value = "";
+      document.getElementById("jCover").value = "";
+      document.getElementById("jType").value = "";
+      document.getElementById("jLocation").value = "";
+      document.getElementById("jYear").value = "";
+      document.getElementById("jStatus").value = "";
+      document.getElementById("jImages").value = "";
+      document.getElementById("jDesc").value = "";
+      editProjectId = null;
+      projectBtn.textContent = "Add Project";
     }
 
     addBtn.addEventListener("click", async () => {
@@ -89,52 +350,166 @@
       const price = parseInt(document.getElementById("pPrice").value, 10);
       const stock = parseInt(document.getElementById("pStock").value, 10) || 0;
       const img = document.getElementById("pImg").value.trim();
-      const desc = document.getElementById("pDesc").value.trim();
       const category = document.getElementById("pCategory").value.trim().toLowerCase();
+      const tagline = document.getElementById("pTagline").value.trim();
+      const desc = document.getElementById("pDesc").value.trim();
+      const imageLinks = document.getElementById("pImageLinks").value
+        .split("\n")
+        .map((value) => value.trim());
+      const images = makeUniqueList([img, ...imageLinks]);
 
       if (!name || !price || !img) {
-        alert("Fill required fields");
+        alert("Please fill the product name, price, and main image.");
         return;
       }
 
-      if (editId) {
-        await updateProduct(editId, { name, price, stock, img, desc, category });
-        alert("Updated!");
-        editId = null;
-        addBtn.textContent = "Add Product";
-      } else {
-        await addProduct(name, price, stock, img, desc, category);
-        alert("Added!");
+      const payload = { name, price, stock, img, category, tagline, desc, images };
+
+      try {
+        if (editProductId) {
+          await updateProduct(editProductId, payload);
+          alert("Product updated");
+        } else {
+          await addProduct(name, price, stock, img, desc, category, images, { tagline });
+          alert("Product added");
+        }
+
+        resetProductForm();
+        loadProducts();
+      } catch (error) {
+        console.error(error);
+        alert(`Could not save product: ${error.message || "Unknown error"}`);
+      }
+    });
+
+    storyBtn.addEventListener("click", async () => {
+      const title = document.getElementById("sTitle").value.trim();
+      const image = document.getElementById("sImage").value.trim();
+      const tag = document.getElementById("sTag").value.trim();
+      const cta = document.getElementById("sCta").value.trim();
+      const desc = document.getElementById("sDesc").value.trim();
+
+      if (!title || !image) {
+        alert("Please fill the story title and image.");
+        return;
       }
 
-      resetForm();
-      loadProducts();
+      const payload = { title, image, tag, cta, desc };
+
+      try {
+        if (editStoryId) {
+          await updateStory(editStoryId, payload);
+          alert("Story updated");
+        } else {
+          await addStory(payload);
+          alert("Story added");
+        }
+
+        resetStoryForm();
+        loadStories();
+      } catch (error) {
+        console.error(error);
+        alert(`Could not save story: ${error.message || "Unknown error"}`);
+      }
+    });
+
+    projectBtn.addEventListener("click", async () => {
+      const title = document.getElementById("jTitle").value.trim();
+      const cover = document.getElementById("jCover").value.trim();
+      const type = document.getElementById("jType").value.trim();
+      const location = document.getElementById("jLocation").value.trim();
+      const year = document.getElementById("jYear").value.trim();
+      const status = document.getElementById("jStatus").value.trim();
+      const desc = document.getElementById("jDesc").value.trim();
+      const images = makeUniqueList([
+        cover,
+        ...document.getElementById("jImages").value.split("\n").map((value) => value.trim())
+      ]);
+
+      if (!title || !cover) {
+        alert("Please fill the project title and cover image.");
+        return;
+      }
+
+      const payload = { title, cover, type, location, year, status, desc, images };
+
+      try {
+        if (editProjectId) {
+          await updateProject(editProjectId, payload);
+          alert("Project updated");
+        } else {
+          await addProject(payload);
+          alert("Project added");
+        }
+
+        resetProjectForm();
+        loadProjects();
+      } catch (error) {
+        console.error(error);
+        alert(`Could not save project: ${error.message || "Unknown error"}`);
+      }
     });
 
     const demoProducts = [
       {
-        name: "Modern Fabric Sofa",
+        name: "RR Sample Sofa",
         price: 24999,
         stock: 6,
-        img: "https://images.unsplash.com/photo-1555041469-a586c61ea9bc?q=80&w=1200&auto=format&fit=crop",
-        desc: "Comfortable fabric sofa with a clean modern look for living rooms.",
-        category: "sofa"
+        img: "assets/products/sample-sofa.svg",
+        images: [
+          "assets/products/sample-sofa.svg",
+          "assets/products/sample-sofa-side.svg",
+          "assets/products/sample-sofa-detail.svg"
+        ],
+        desc: "Sample product using local project image paths instead of external image URLs.",
+        category: "sofa",
+        tagline: "Easy local-image example"
+      }
+    ];
+
+    const demoStories = [
+      {
+        title: "Warm Living Room Story",
+        image: "assets/products/sample-sofa.svg",
+        tag: "Living Room",
+        cta: "View Style",
+        desc: "A soft, warm look for family seating areas with layered textures and wooden details."
       },
       {
-        name: "Solid Wood Study Table",
-        price: 8999,
-        stock: 10,
-        img: "https://images.unsplash.com/photo-1519710164239-da123dc03ef4?q=80&w=1200&auto=format&fit=crop",
-        desc: "Compact wooden study table designed for home office and bedroom use.",
-        category: "study"
+        title: "Compact Study Corner",
+        image: "https://images.unsplash.com/photo-1513694203232-719a280e022f?q=80&w=1200&auto=format&fit=crop",
+        tag: "Study",
+        cta: "See Details",
+        desc: "A simple inspiration block for work-from-home setups and student-friendly rooms."
+      }
+    ];
+
+    const demoProjects = [
+      {
+        title: "3BHK Bedroom Package",
+        cover: "assets/products/sample-sofa-detail.svg",
+        type: "Bedroom",
+        location: "Hyderabad",
+        year: "2026",
+        status: "Completed",
+        desc: "Wardrobes, cot design, side tables, and accent finishes completed for a family home.",
+        images: [
+          "assets/products/sample-sofa-detail.svg",
+          "assets/products/sample-sofa-side.svg"
+        ]
       },
       {
-        name: "Premium Dining Set",
-        price: 32999,
-        stock: 4,
-        img: "https://images.unsplash.com/photo-1505693416388-ac5ce068fe85?q=80&w=1200&auto=format&fit=crop",
-        desc: "Elegant dining set with warm wood finish for family dining spaces.",
-        category: "dining"
+        title: "Cafe Seating Upgrade",
+        cover: "https://images.unsplash.com/photo-1497366754035-f200968a6e72?q=80&w=1200&auto=format&fit=crop",
+        type: "Commercial",
+        location: "Bengaluru",
+        year: "2025",
+        status: "Completed",
+        desc: "Custom seating and wood finishes tailored for a compact cafe interior.",
+        images: [
+          "https://images.unsplash.com/photo-1497366754035-f200968a6e72?q=80&w=1200&auto=format&fit=crop",
+          "https://images.unsplash.com/photo-1497366412874-3415097a27e7?q=80&w=1200&auto=format&fit=crop"
+        ]
       }
     ];
 
@@ -150,87 +525,234 @@
             product.stock,
             product.img,
             product.desc,
-            product.category
+            product.category,
+            product.images,
+            { tagline: product.tagline }
           );
         }
 
-        alert("Demo products added");
+        alert("Demo product added");
         loadProducts();
       } catch (error) {
         console.error(error);
-        alert("Could not add demo products");
+        alert("Could not add demo product");
       } finally {
         seedBtn.disabled = false;
         seedBtn.textContent = "Add Demo Products";
       }
     });
 
-    function renderLoading() {
-      listEl.innerHTML = `
-        <div class="col-span-full flex flex-col items-center justify-center rounded-3xl bg-white px-6 py-12 text-center shadow">
-          <div class="h-10 w-10 animate-spin rounded-full border-4 border-slate-200 border-t-amber-600"></div>
-          <p class="mt-4 text-sm font-medium text-slate-700">Loading products...</p>
-          <p class="mt-1 text-xs text-slate-500">Please wait a moment.</p>
-        </div>
-      `;
-    }
+    seedStoriesBtn.addEventListener("click", async () => {
+      seedStoriesBtn.disabled = true;
+      seedStoriesBtn.textContent = "Adding...";
+
+      try {
+        for (const story of demoStories) {
+          await addStory(story);
+        }
+
+        alert("Demo stories added");
+        loadStories();
+      } catch (error) {
+        console.error(error);
+        alert("Could not add demo stories");
+      } finally {
+        seedStoriesBtn.disabled = false;
+        seedStoriesBtn.textContent = "Add Demo Stories";
+      }
+    });
+
+    seedProjectsBtn.addEventListener("click", async () => {
+      seedProjectsBtn.disabled = true;
+      seedProjectsBtn.textContent = "Adding...";
+
+      try {
+        for (const project of demoProjects) {
+          await addProject(project);
+        }
+
+        alert("Demo projects added");
+        loadProjects();
+      } catch (error) {
+        console.error(error);
+        alert("Could not add demo projects");
+      } finally {
+        seedProjectsBtn.disabled = false;
+        seedProjectsBtn.textContent = "Add Demo Projects";
+      }
+    });
 
     async function loadProducts() {
-      renderLoading();
-      const products = await getAllProducts();
-      listEl.innerHTML = "";
+      renderLoading(productListEl, "products");
+      try {
+        const products = await getAllProducts();
+        productListEl.innerHTML = "";
 
-      products.forEach((product) => {
-        const card = document.createElement("div");
-        card.className = "rounded-lg bg-white p-4 shadow";
-
-        card.innerHTML = `
-          <img src="${product.img}" alt="${product.name}" class="h-40 w-full rounded object-cover">
-
-          <h3 class="mt-2 font-semibold">${product.name}</h3>
-          <p class="text-sm text-gray-600">Rs. ${Number(product.price || 0).toLocaleString()}</p>
-          <p class="mt-1 text-xs ${product.category ? "text-amber-700" : "text-red-500"}">
-            ${product.category ? `Category: ${product.category}` : "Category missing"}
-          </p>
-
-          <div class="mt-3 flex gap-2">
-            <button onclick="editProduct('${product.id}')" class="rounded bg-blue-600 px-3 py-1 text-sm text-white">
-              Edit
-            </button>
-            <button onclick="deleteProductAction('${product.id}')" class="rounded bg-red-600 px-3 py-1 text-sm text-white">
-              Delete
-            </button>
+        products.forEach((product) => {
+          const card = document.createElement("div");
+          card.className = "rounded-[1.5rem] border border-slate-100 bg-white p-4 shadow-sm";
+          card.innerHTML = `
+          <img src="${product.img}" alt="${product.name}" class="h-44 w-full rounded-2xl object-cover">
+          <div class="mt-4 flex items-start justify-between gap-3">
+            <div>
+              <h3 class="font-semibold text-slate-900">${product.name}</h3>
+              <p class="mt-1 text-sm text-slate-500">Rs. ${Number(product.price || 0).toLocaleString()}</p>
+            </div>
+            <span class="rounded-full bg-slate-100 px-3 py-1 text-xs font-medium uppercase text-slate-600">${product.category || "none"}</span>
+          </div>
+          <p class="mt-2 text-xs leading-5 text-slate-500">${product.tagline || product.desc || "No description yet."}</p>
+          <p class="mt-2 text-xs text-slate-400">${product.images?.length || 1} image(s)</p>
+          <div class="mt-4 flex gap-2">
+            <button onclick="editProduct('${product.id}')" class="rounded-xl bg-blue-600 px-3 py-2 text-sm font-medium text-white">Edit</button>
+            <button onclick="deleteProductAction('${product.id}')" class="rounded-xl bg-red-600 px-3 py-2 text-sm font-medium text-white">Delete</button>
           </div>
         `;
+          productListEl.appendChild(card);
+        });
+      } catch (error) {
+        console.error(error);
+        productListEl.innerHTML = `<div class="col-span-full rounded-3xl bg-red-50 px-6 py-5 text-sm text-red-700">Could not load products: ${error.message || "Unknown error"}</div>`;
+      }
+    }
 
-        listEl.appendChild(card);
-      });
+    async function loadStories() {
+      renderLoading(storyListEl, "stories");
+      try {
+        const stories = await getAllStories();
+        storyListEl.innerHTML = "";
+
+        stories.forEach((story) => {
+          const card = document.createElement("div");
+          card.className = "rounded-[1.5rem] border border-slate-100 bg-white p-4 shadow-sm";
+          card.innerHTML = `
+          <img src="${story.image}" alt="${story.title}" class="h-44 w-full rounded-2xl object-cover">
+          <div class="mt-4">
+            <div class="flex items-start justify-between gap-3">
+              <h3 class="font-semibold text-slate-900">${story.title}</h3>
+              <span class="rounded-full bg-sky-50 px-3 py-1 text-xs font-medium text-sky-800">${story.tag || "Story"}</span>
+            </div>
+            <p class="mt-2 text-sm leading-6 text-slate-500">${story.desc || "No story description yet."}</p>
+            <p class="mt-2 text-xs text-slate-400">${story.cta || "No CTA"}</p>
+          </div>
+          <div class="mt-4 flex gap-2">
+            <button onclick="editStory('${story.id}')" class="rounded-xl bg-blue-600 px-3 py-2 text-sm font-medium text-white">Edit</button>
+            <button onclick="deleteStoryAction('${story.id}')" class="rounded-xl bg-red-600 px-3 py-2 text-sm font-medium text-white">Delete</button>
+          </div>
+        `;
+          storyListEl.appendChild(card);
+        });
+      } catch (error) {
+        console.error(error);
+        storyListEl.innerHTML = `<div class="col-span-full rounded-3xl bg-red-50 px-6 py-5 text-sm text-red-700">Could not load stories: ${error.message || "Unknown error"}</div>`;
+      }
+    }
+
+    async function loadProjects() {
+      renderLoading(projectListEl, "projects");
+      try {
+        const projects = await getAllProjects();
+        projectListEl.innerHTML = "";
+
+        projects.forEach((project) => {
+          const card = document.createElement("div");
+          card.className = "rounded-[1.5rem] border border-slate-100 bg-white p-4 shadow-sm";
+          card.innerHTML = `
+          <img src="${project.cover}" alt="${project.title}" class="h-44 w-full rounded-2xl object-cover">
+          <div class="mt-4">
+            <div class="flex items-start justify-between gap-3">
+              <h3 class="font-semibold text-slate-900">${project.title}</h3>
+              <span class="rounded-full bg-emerald-50 px-3 py-1 text-xs font-medium text-emerald-800">${project.status || "Project"}</span>
+            </div>
+            <p class="mt-1 text-sm text-slate-500">${project.type || "General"}${project.location ? ` • ${project.location}` : ""}</p>
+            <p class="mt-2 text-sm leading-6 text-slate-500">${project.desc || "No project summary yet."}</p>
+            <p class="mt-2 text-xs text-slate-400">${project.images?.length || 1} gallery image(s)</p>
+          </div>
+          <div class="mt-4 flex gap-2">
+            <button onclick="editProject('${project.id}')" class="rounded-xl bg-blue-600 px-3 py-2 text-sm font-medium text-white">Edit</button>
+            <button onclick="deleteProjectAction('${project.id}')" class="rounded-xl bg-red-600 px-3 py-2 text-sm font-medium text-white">Delete</button>
+          </div>
+        `;
+          projectListEl.appendChild(card);
+        });
+      } catch (error) {
+        console.error(error);
+        projectListEl.innerHTML = `<div class="col-span-full rounded-3xl bg-red-50 px-6 py-5 text-sm text-red-700">Could not load projects: ${error.message || "Unknown error"}</div>`;
+      }
     }
 
     window.deleteProductAction = async function deleteProductAction(id) {
-      if (!confirm("Delete?")) return;
+      if (!confirm("Delete this product?")) return;
       await deleteProduct(id);
       loadProducts();
+    };
+
+    window.deleteStoryAction = async function deleteStoryAction(id) {
+      if (!confirm("Delete this story?")) return;
+      await deleteStory(id);
+      loadStories();
+    };
+
+    window.deleteProjectAction = async function deleteProjectAction(id) {
+      if (!confirm("Delete this project?")) return;
+      await deleteProject(id);
+      loadProjects();
     };
 
     window.editProduct = async function editProduct(id) {
       const products = await getAllProducts();
       const product = products.find((item) => item.id === id);
-
       if (!product) return;
 
+      setActiveTab("products");
       document.getElementById("pName").value = product.name || "";
       document.getElementById("pPrice").value = product.price || "";
       document.getElementById("pStock").value = product.stock || "";
       document.getElementById("pImg").value = product.img || "";
-      document.getElementById("pDesc").value = product.desc || "";
       document.getElementById("pCategory").value = product.category || "";
-
-      editId = id;
+      document.getElementById("pTagline").value = product.tagline || "";
+      document.getElementById("pImageLinks").value = (product.images || []).slice(1).join("\n");
+      document.getElementById("pDesc").value = product.desc || "";
+      editProductId = id;
       addBtn.textContent = "Update Product";
     };
 
-    loadProducts();
+    window.editStory = async function editStory(id) {
+      const stories = await getAllStories();
+      const story = stories.find((item) => item.id === id);
+      if (!story) return;
+
+      setActiveTab("stories");
+      document.getElementById("sTitle").value = story.title || "";
+      document.getElementById("sImage").value = story.image || "";
+      document.getElementById("sTag").value = story.tag || "";
+      document.getElementById("sCta").value = story.cta || "";
+      document.getElementById("sDesc").value = story.desc || "";
+      editStoryId = id;
+      storyBtn.textContent = "Update Story";
+    };
+
+    window.editProject = async function editProject(id) {
+      const projects = await getAllProjects();
+      const project = projects.find((item) => item.id === id);
+      if (!project) return;
+
+      setActiveTab("projects");
+      document.getElementById("jTitle").value = project.title || "";
+      document.getElementById("jCover").value = project.cover || "";
+      document.getElementById("jType").value = project.type || "";
+      document.getElementById("jLocation").value = project.location || "";
+      document.getElementById("jYear").value = project.year || "";
+      document.getElementById("jStatus").value = project.status || "";
+      document.getElementById("jImages").value = (project.images || []).slice(1).join("\n");
+      document.getElementById("jDesc").value = project.desc || "";
+      editProjectId = id;
+      projectBtn.textContent = "Update Project";
+    };
+
+      loadProducts();
+      loadStories();
+      loadProjects();
+    })();
   </script>
 </body>
 </html>

@@ -297,7 +297,7 @@
           <p class="text-xs font-extrabold uppercase tracking-[0.18em] text-wood-700">Curated looks</p>
           <h2 class="mt-1 text-xl font-extrabold text-stone-950 sm:text-2xl">Top Wooden Designs</h2>
         </div>
-        <a href="work-gallery.html" class="text-sm font-bold text-wood-700">Gallery</a>
+        <a href="our-work.html" class="text-sm font-bold text-wood-700">Our Work</a>
       </div>
 
       <div class="no-scrollbar -mx-4 flex snap-x snap-mandatory gap-4 overflow-x-auto px-4 pb-2 sm:mx-0 sm:grid sm:grid-cols-3 sm:px-0">
@@ -379,12 +379,15 @@
     </section>
 
     <section id="stories" class="mx-auto max-w-7xl px-4 pt-8 sm:px-6 lg:pt-12">
-      <div class="mb-4">
+      <div class="mb-4 flex items-end justify-between gap-4">
+        <div>
         <p class="text-xs font-extrabold uppercase tracking-[0.18em] text-wood-700">Real inspiration</p>
         <h2 class="mt-1 text-xl font-extrabold text-stone-950 sm:text-2xl">Customer Stories</h2>
+        </div>
+        <a href="our-work.html" class="shrink-0 text-sm font-bold text-wood-700">See our work</a>
       </div>
 
-      <div class="no-scrollbar -mx-4 flex snap-x snap-mandatory gap-3 overflow-x-auto px-4 pb-2 sm:mx-0 sm:grid sm:grid-cols-4 sm:px-0">
+      <div id="storiesGrid" class="no-scrollbar -mx-4 flex snap-x snap-mandatory gap-3 overflow-x-auto px-4 pb-2 sm:mx-0 sm:grid sm:grid-cols-4 sm:px-0">
         <article class="w-[42vw] flex-none snap-start overflow-hidden rounded-3xl bg-white shadow-soft sm:w-auto">
           <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?q=80&w=700&auto=format&fit=crop" alt="Living room sofa set" class="aspect-square w-full object-cover">
         </article>
@@ -526,6 +529,59 @@
         }
       });
     }
+  </script>
+  <script type="module">
+    import { getAllStories } from "./firebase.js";
+
+    const storyFallbacks = [
+      {
+        title: "Living room story",
+        image: "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?q=80&w=700&auto=format&fit=crop",
+        tag: "Living"
+      },
+      {
+        title: "Bedroom story",
+        image: "https://images.unsplash.com/photo-1505693416388-ac5ce068fe85?q=80&w=700&auto=format&fit=crop",
+        tag: "Bedroom"
+      },
+      {
+        title: "Dining story",
+        image: "https://images.unsplash.com/photo-1595526114035-0d45ed16cfbf?q=80&w=700&auto=format&fit=crop",
+        tag: "Dining"
+      },
+      {
+        title: "Study story",
+        image: "https://images.unsplash.com/photo-1519710164239-da123dc03ef4?q=80&w=700&auto=format&fit=crop",
+        tag: "Study"
+      }
+    ];
+
+    function renderStories(stories) {
+      const storiesGrid = document.getElementById("storiesGrid");
+      if (!storiesGrid) return;
+
+      storiesGrid.innerHTML = stories.map((story) => `
+        <article class="w-[42vw] flex-none snap-start overflow-hidden rounded-3xl bg-white shadow-soft sm:w-auto">
+          <img src="${story.image}" alt="${story.title || "Customer story"}" class="aspect-square w-full object-cover">
+          <div class="p-3">
+            <p class="text-sm font-bold text-stone-900 line-clamp-1">${story.title || "Customer story"}</p>
+            <p class="mt-1 text-xs text-stone-500">${story.tag || "Inspiration"}</p>
+          </div>
+        </article>
+      `).join("");
+    }
+
+    async function hydrateHomeContent() {
+      try {
+        const stories = await getAllStories();
+        renderStories(stories.length ? stories : storyFallbacks);
+      } catch (error) {
+        console.error("Could not load stories", error);
+        renderStories(storyFallbacks);
+      }
+    }
+
+    hydrateHomeContent();
   </script>
 </body>
 </html>

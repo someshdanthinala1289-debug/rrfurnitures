@@ -1,0 +1,28 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 900" role="img" aria-labelledby="title desc">
+  <title id="title">Sample Sofa Detail View</title>
+  <desc id="desc">A local close-up style sample image for product gallery testing.</desc>
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#f8f3ec"/>
+      <stop offset="100%" stop-color="#e9dece"/>
+    </linearGradient>
+  </defs>
+
+  <rect width="1200" height="900" fill="url(#bg)"/>
+  <rect x="0" y="710" width="1200" height="190" fill="#e2d5c3"/>
+
+  <rect x="220" y="230" width="760" height="360" rx="58" fill="#2f514b"/>
+  <rect x="260" y="285" width="310" height="185" rx="42" fill="#416b64"/>
+  <rect x="610" y="285" width="290" height="185" rx="42" fill="#26423d"/>
+  <rect x="300" y="495" width="560" height="72" rx="28" fill="#23403b"/>
+
+  <line x1="330" y1="320" x2="500" y2="430" stroke="#88a9a3" stroke-width="10" opacity="0.35"/>
+  <line x1="650" y1="305" x2="840" y2="435" stroke="#77958f" stroke-width="10" opacity="0.28"/>
+
+  <text x="600" y="130" text-anchor="middle" font-family="Arial, sans-serif" font-size="54" font-weight="700" fill="#8a5108">
+    Sample Sofa Detail View
+  </text>
+  <text x="600" y="185" text-anchor="middle" font-family="Arial, sans-serif" font-size="26" fill="#4b5563">
+    Use this path in additional gallery image URLs
+  </text>
+</svg>
