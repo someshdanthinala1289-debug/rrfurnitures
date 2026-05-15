@@ -58,6 +58,7 @@
 
     const params = new URLSearchParams(window.location.search);
     const selectedCategory = params.get("cat");
+    const initialQuery = params.get("q")?.trim() || "";
 
     function formatPrice(price) {
       return `Rs. ${Number(price || 0).toLocaleString()}`;
@@ -124,22 +125,32 @@
       renderLoading();
       allProducts = await getAllProducts();
 
-      if (selectedCategory) {
-        render(allProducts.filter((product) => product.category?.toLowerCase() === selectedCategory.toLowerCase()));
-        return;
+      if (initialQuery) {
+        searchInput.value = initialQuery;
       }
 
-      render(allProducts);
+      applyFilters();
+    }
+
+    function applyFilters() {
+      const query = searchInput.value.toLowerCase().trim();
+      let filtered = [...allProducts];
+
+      if (selectedCategory) {
+        filtered = filtered.filter((product) => product.category?.toLowerCase() === selectedCategory.toLowerCase());
+      }
+
+      if (query) {
+        filtered = filtered.filter((product) =>
+          `${product.name} ${product.desc || ""} ${product.category || ""}`.toLowerCase().includes(query)
+        );
+      }
+
+      render(filtered);
     }
 
     searchInput.addEventListener("input", () => {
-      const query = searchInput.value.toLowerCase().trim();
-
-      const filtered = allProducts.filter((product) =>
-        `${product.name} ${product.desc || ""} ${product.category || ""}`.toLowerCase().includes(query)
-      );
-
-      render(filtered);
+      applyFilters();
     });
 
     window.addToCart = function addToCart(id) {
