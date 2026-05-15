@@ -1,0 +1,236 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Admin - RR Furnitures</title>
+
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <style>
+    .card-shadow {
+      box-shadow: 0 8px 28px rgba(15, 23, 42, 0.1);
+    }
+  </style>
+</head>
+<body class="bg-gray-100 text-gray-800">
+  <header class="bg-white shadow">
+    <div class="mx-auto flex max-w-6xl items-center justify-between px-4 py-4">
+      <h1 class="text-xl font-bold">RR Furnitures - Admin Panel</h1>
+      <a href="index.html" class="rounded bg-gray-800 px-4 py-2 text-white">Back</a>
+    </div>
+  </header>
+
+  <main class="mx-auto max-w-6xl px-4 py-10">
+    <section class="mb-8 rounded-lg bg-white p-6 card-shadow">
+      <h2 class="mb-4 text-lg font-semibold">Add / Edit Product</h2>
+
+      <div class="grid gap-4 md:grid-cols-2">
+        <input id="pName" placeholder="Product Name" class="rounded border p-3">
+        <input id="pPrice" type="number" placeholder="Price" class="rounded border p-3">
+        <input id="pStock" type="number" placeholder="Stock" class="rounded border p-3">
+        <input id="pImg" placeholder="Image URL" class="rounded border p-3">
+        <select id="pCategory" class="rounded border p-3 bg-white">
+          <option value="">Select Category</option>
+          <option value="sofa">Sofa</option>
+          <option value="bed">Bed</option>
+          <option value="dining">Dining</option>
+          <option value="table">Table</option>
+          <option value="chair">Chair</option>
+          <option value="wardrobe">Wardrobe</option>
+          <option value="tv">TV Unit</option>
+          <option value="study">Study</option>
+          <option value="storage">Storage</option>
+        </select>
+        <textarea id="pDesc" placeholder="Description" class="rounded border p-3 md:col-span-2"></textarea>
+      </div>
+
+      <div class="mt-4 flex flex-wrap gap-3">
+        <button id="addBtn" class="rounded bg-green-600 px-6 py-3 text-white">
+          Add Product
+        </button>
+        <button id="seedBtn" type="button" class="rounded bg-amber-600 px-6 py-3 text-white">
+          Add Demo Products
+        </button>
+      </div>
+    </section>
+
+    <section>
+      <h2 class="mb-4 text-xl font-semibold">All Products</h2>
+      <div id="productsList" class="grid gap-6 sm:grid-cols-2 lg:grid-cols-3"></div>
+    </section>
+  </main>
+
+  <script type="module">
+    import {
+      addProduct,
+      getAllProducts,
+      deleteProduct,
+      updateProduct
+    } from "./firebase.js";
+
+    const listEl = document.getElementById("productsList");
+    const addBtn = document.getElementById("addBtn");
+    const seedBtn = document.getElementById("seedBtn");
+
+    let editId = null;
+
+    function resetForm() {
+      document.getElementById("pName").value = "";
+      document.getElementById("pPrice").value = "";
+      document.getElementById("pStock").value = "";
+      document.getElementById("pImg").value = "";
+      document.getElementById("pDesc").value = "";
+      document.getElementById("pCategory").value = "";
+    }
+
+    addBtn.addEventListener("click", async () => {
+      const name = document.getElementById("pName").value.trim();
+      const price = parseInt(document.getElementById("pPrice").value, 10);
+      const stock = parseInt(document.getElementById("pStock").value, 10) || 0;
+      const img = document.getElementById("pImg").value.trim();
+      const desc = document.getElementById("pDesc").value.trim();
+      const category = document.getElementById("pCategory").value.trim().toLowerCase();
+
+      if (!name || !price || !img) {
+        alert("Fill required fields");
+        return;
+      }
+
+      if (editId) {
+        await updateProduct(editId, { name, price, stock, img, desc, category });
+        alert("Updated!");
+        editId = null;
+        addBtn.textContent = "Add Product";
+      } else {
+        await addProduct(name, price, stock, img, desc, category);
+        alert("Added!");
+      }
+
+      resetForm();
+      loadProducts();
+    });
+
+    const demoProducts = [
+      {
+        name: "Modern Fabric Sofa",
+        price: 24999,
+        stock: 6,
+        img: "https://images.unsplash.com/photo-1555041469-a586c61ea9bc?q=80&w=1200&auto=format&fit=crop",
+        desc: "Comfortable fabric sofa with a clean modern look for living rooms.",
+        category: "sofa"
+      },
+      {
+        name: "Solid Wood Study Table",
+        price: 8999,
+        stock: 10,
+        img: "https://images.unsplash.com/photo-1519710164239-da123dc03ef4?q=80&w=1200&auto=format&fit=crop",
+        desc: "Compact wooden study table designed for home office and bedroom use.",
+        category: "study"
+      },
+      {
+        name: "Premium Dining Set",
+        price: 32999,
+        stock: 4,
+        img: "https://images.unsplash.com/photo-1505693416388-ac5ce068fe85?q=80&w=1200&auto=format&fit=crop",
+        desc: "Elegant dining set with warm wood finish for family dining spaces.",
+        category: "dining"
+      }
+    ];
+
+    seedBtn.addEventListener("click", async () => {
+      seedBtn.disabled = true;
+      seedBtn.textContent = "Adding...";
+
+      try {
+        for (const product of demoProducts) {
+          await addProduct(
+            product.name,
+            product.price,
+            product.stock,
+            product.img,
+            product.desc,
+            product.category
+          );
+        }
+
+        alert("Demo products added");
+        loadProducts();
+      } catch (error) {
+        console.error(error);
+        alert("Could not add demo products");
+      } finally {
+        seedBtn.disabled = false;
+        seedBtn.textContent = "Add Demo Products";
+      }
+    });
+
+    function renderLoading() {
+      listEl.innerHTML = `
+        <div class="col-span-full flex flex-col items-center justify-center rounded-3xl bg-white px-6 py-12 text-center shadow">
+          <div class="h-10 w-10 animate-spin rounded-full border-4 border-slate-200 border-t-amber-600"></div>
+          <p class="mt-4 text-sm font-medium text-slate-700">Loading products...</p>
+          <p class="mt-1 text-xs text-slate-500">Please wait a moment.</p>
+        </div>
+      `;
+    }
+
+    async function loadProducts() {
+      renderLoading();
+      const products = await getAllProducts();
+      listEl.innerHTML = "";
+
+      products.forEach((product) => {
+        const card = document.createElement("div");
+        card.className = "rounded-lg bg-white p-4 shadow";
+
+        card.innerHTML = `
+          <img src="${product.img}" alt="${product.name}" class="h-40 w-full rounded object-cover">
+
+          <h3 class="mt-2 font-semibold">${product.name}</h3>
+          <p class="text-sm text-gray-600">Rs. ${Number(product.price || 0).toLocaleString()}</p>
+          <p class="mt-1 text-xs ${product.category ? "text-amber-700" : "text-red-500"}">
+            ${product.category ? `Category: ${product.category}` : "Category missing"}
+          </p>
+
+          <div class="mt-3 flex gap-2">
+            <button onclick="editProduct('${product.id}')" class="rounded bg-blue-600 px-3 py-1 text-sm text-white">
+              Edit
+            </button>
+            <button onclick="deleteProductAction('${product.id}')" class="rounded bg-red-600 px-3 py-1 text-sm text-white">
+              Delete
+            </button>
+          </div>
+        `;
+
+        listEl.appendChild(card);
+      });
+    }
+
+    window.deleteProductAction = async function deleteProductAction(id) {
+      if (!confirm("Delete?")) return;
+      await deleteProduct(id);
+      loadProducts();
+    };
+
+    window.editProduct = async function editProduct(id) {
+      const products = await getAllProducts();
+      const product = products.find((item) => item.id === id);
+
+      if (!product) return;
+
+      document.getElementById("pName").value = product.name || "";
+      document.getElementById("pPrice").value = product.price || "";
+      document.getElementById("pStock").value = product.stock || "";
+      document.getElementById("pImg").value = product.img || "";
+      document.getElementById("pDesc").value = product.desc || "";
+      document.getElementById("pCategory").value = product.category || "";
+
+      editId = id;
+      addBtn.textContent = "Update Product";
+    };
+
+    loadProducts();
+  </script>
+</body>
+</html>

@@ -1,0 +1,531 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>RR Furnitures - Wooden Interiors & Furniture</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            wood: {
+              50: "#fbf5ef",
+              100: "#f3e6d6",
+              200: "#ead4b8",
+              300: "#d59a5a",
+              500: "#b36b1b",
+              700: "#7b4211",
+              900: "#4e2708"
+            }
+          },
+          fontFamily: {
+            sans: ["Manrope", "ui-sans-serif", "system-ui", "sans-serif"]
+          },
+          boxShadow: {
+            soft: "0 10px 30px rgba(78, 39, 8, 0.08)",
+            card: "0 14px 40px rgba(30, 22, 15, 0.10)",
+            nav: "0 8px 24px rgba(15, 23, 42, 0.08)"
+          },
+          keyframes: {
+            fadeUp: {
+              "0%": { opacity: "0", transform: "translateY(14px)" },
+              "100%": { opacity: "1", transform: "translateY(0)" }
+            }
+          },
+          animation: {
+            fadeUp: "fadeUp .55s ease-out both"
+          }
+        }
+      }
+    };
+  </script>
+  <style>
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+    }
+
+    .no-scrollbar::-webkit-scrollbar {
+      display: none;
+    }
+
+    .no-scrollbar {
+      -ms-overflow-style: none;
+      scrollbar-width: none;
+    }
+  </style>
+</head>
+<body class="overflow-x-hidden bg-[#faf8f5] text-stone-900">
+  <div class="hidden border-b border-stone-200 bg-white text-xs text-stone-600 lg:block">
+    <div class="mx-auto flex max-w-7xl items-center justify-between px-6 py-2.5">
+      <p>Premium wooden furniture, interiors, and custom projects</p>
+      <div class="flex items-center gap-6">
+        <a href="tel:+919381049087" class="transition hover:text-wood-700">+91 93810 49087</a>
+        <a href="#contact" class="transition hover:text-wood-700">Bulk Order</a>
+        <a href="https://wa.me/919381049087" class="transition hover:text-wood-700">Help Center</a>
+      </div>
+    </div>
+  </div>
+
+  <header class="sticky top-0 z-50 border-b border-stone-200 bg-white/95 shadow-nav backdrop-blur">
+    <div class="mx-auto max-w-7xl px-4 sm:px-6">
+      <div class="flex items-center justify-between gap-3 py-3 lg:py-4">
+        <div class="flex min-w-0 items-center gap-3">
+          <button
+            id="mobileMenuBtn"
+            type="button"
+            aria-expanded="false"
+            aria-controls="mobileNav"
+            class="inline-flex h-11 w-11 shrink-0 items-center justify-center rounded-full border border-stone-200 bg-white text-stone-700 transition hover:border-wood-300 hover:bg-wood-50 lg:hidden"
+          >
+            <span class="sr-only">Open menu</span>
+            <svg class="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9">
+              <path d="M4 7h16M4 12h16M4 17h16" stroke-linecap="round" stroke-linejoin="round"></path>
+            </svg>
+          </button>
+
+          <a href="index.html" class="flex min-w-0 items-center gap-3">
+            <img
+              src="https://i.ibb.co/Y7q3ZZL7/WhatsApp-Image-2026-04-10-at-12-05-23-AM.jpg"
+              alt="RR Furnitures Logo"
+              class="h-11 w-11 shrink-0 rounded-full object-cover ring-1 ring-wood-100 lg:h-14 lg:w-14"
+            >
+            <div class="min-w-0">
+              <p class="text-[10px] font-bold uppercase tracking-[0.22em] text-wood-500">RR</p>
+              <h1 class="truncate text-xl font-extrabold leading-tight text-stone-950 lg:text-2xl">Furnitures</h1>
+              <p class="hidden text-xs font-medium text-stone-500 sm:block">Comfort - Quality - Timeless</p>
+            </div>
+          </a>
+        </div>
+
+        <div class="hidden max-w-xl flex-1 lg:block">
+          <label class="relative block">
+            <span class="sr-only">Search products</span>
+            <input
+              type="search"
+              placeholder="Search sofas, beds, wardrobes..."
+              class="h-12 w-full rounded-2xl border border-stone-200 bg-stone-50 pl-5 pr-12 text-sm outline-none transition placeholder:text-stone-400 focus:border-wood-500 focus:bg-white focus:shadow-soft"
+            >
+            <span class="pointer-events-none absolute inset-y-0 right-4 flex items-center text-stone-500">
+              <svg class="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9">
+                <circle cx="11" cy="11" r="7"></circle>
+                <path d="m20 20-3.5-3.5" stroke-linecap="round"></path>
+              </svg>
+            </span>
+          </label>
+        </div>
+
+        <div class="flex shrink-0 items-center gap-2">
+          <a href="#stories" class="hidden h-11 w-11 items-center justify-center rounded-full border border-stone-200 bg-white text-stone-700 transition hover:border-wood-300 hover:bg-wood-50 sm:inline-flex">
+            <span class="sr-only">Wishlist</span>
+            <svg class="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9">
+              <path d="m12 20-1.2-1C5.4 14.2 2 11.1 2 7.3A4.3 4.3 0 0 1 6.3 3c2 0 3.2 1 3.7 2 .5-1 1.8-2 3.7-2A4.3 4.3 0 0 1 18 7.3c0 3.8-3.4 6.9-8.8 11.7L8 20Z" stroke-linecap="round" stroke-linejoin="round"></path>
+            </svg>
+          </a>
+          <a href="cart.html" class="inline-flex h-11 w-11 items-center justify-center rounded-full border border-stone-200 bg-white text-stone-700 transition hover:border-wood-300 hover:bg-wood-50">
+            <span class="sr-only">Cart</span>
+            <svg class="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9">
+              <circle cx="9" cy="19" r="1.5"></circle>
+              <circle cx="17" cy="19" r="1.5"></circle>
+              <path d="M3 4h2l2.4 10.5a1 1 0 0 0 1 .8h8.9a1 1 0 0 0 1-.7L21 7H7.4" stroke-linecap="round" stroke-linejoin="round"></path>
+            </svg>
+          </a>
+          <a href="#contact" class="hidden rounded-2xl bg-wood-700 px-5 py-3 text-sm font-bold text-white shadow-soft transition hover:-translate-y-0.5 hover:bg-wood-500 lg:inline-flex">
+            Request Call
+          </a>
+        </div>
+      </div>
+
+      <div class="pb-3 lg:hidden">
+        <label class="relative block">
+          <span class="sr-only">Search products</span>
+          <input
+            type="search"
+            placeholder="Search products, color & more..."
+            class="h-12 w-full rounded-2xl border border-stone-200 bg-stone-50 pl-5 pr-12 text-sm outline-none transition placeholder:text-stone-400 focus:border-wood-500 focus:bg-white"
+          >
+          <span class="pointer-events-none absolute inset-y-0 right-4 flex items-center text-stone-500">
+            <svg class="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9">
+              <circle cx="11" cy="11" r="7"></circle>
+              <path d="m20 20-3.5-3.5" stroke-linecap="round"></path>
+            </svg>
+          </span>
+        </label>
+      </div>
+
+      <nav class="no-scrollbar -mx-4 flex gap-1 overflow-x-auto border-t border-stone-100 px-4 py-2.5 text-sm font-semibold text-stone-700 lg:mx-0 lg:justify-between lg:gap-3 lg:px-0 lg:text-[15px]">
+        <a href="products.html" class="shrink-0 rounded-full bg-wood-50 px-4 py-2 text-wood-700">All</a>
+        <a href="products.html?cat=sofa" class="shrink-0 rounded-full px-4 py-2 transition hover:bg-wood-50 hover:text-wood-700">Living</a>
+        <a href="products.html?cat=bed" class="shrink-0 rounded-full px-4 py-2 transition hover:bg-wood-50 hover:text-wood-700">Bedroom</a>
+        <a href="products.html?cat=dining" class="shrink-0 rounded-full px-4 py-2 transition hover:bg-wood-50 hover:text-wood-700">Dining</a>
+        <a href="products.html?cat=wardrobe" class="shrink-0 rounded-full px-4 py-2 transition hover:bg-wood-50 hover:text-wood-700">Wardrobes</a>
+        <a href="products.html?cat=study" class="shrink-0 rounded-full px-4 py-2 transition hover:bg-wood-50 hover:text-wood-700">Study</a>
+        <a href="products.html?cat=chair" class="shrink-0 rounded-full px-4 py-2 transition hover:bg-wood-50 hover:text-wood-700">Chairs</a>
+        <a href="products.html?cat=table" class="shrink-0 rounded-full px-4 py-2 transition hover:bg-wood-50 hover:text-wood-700">Tables</a>
+        <a href="products.html?cat=shoe" class="shrink-0 rounded-full px-4 py-2 transition hover:bg-wood-50 hover:text-wood-700">Shoe Racks</a>
+        <a href="#top-picks" class="shrink-0 rounded-full px-4 py-2 transition hover:bg-wood-50 hover:text-wood-700">Top Picks</a>
+      </nav>
+
+      <div id="mobileNav" class="hidden pb-4 lg:hidden">
+        <div class="grid gap-2 rounded-3xl border border-stone-200 bg-white p-3 shadow-card">
+          <a href="#categories" class="rounded-2xl bg-wood-50 px-4 py-3 text-sm font-bold text-wood-700">Shop by Category</a>
+          <a href="#top-picks" class="rounded-2xl px-4 py-3 text-sm font-semibold text-stone-700 hover:bg-stone-50">Top Wooden Designs</a>
+          <a href="#why-us" class="rounded-2xl px-4 py-3 text-sm font-semibold text-stone-700 hover:bg-stone-50">Why Choose Us</a>
+          <a href="#stories" class="rounded-2xl px-4 py-3 text-sm font-semibold text-stone-700 hover:bg-stone-50">Customer Stories</a>
+          <a href="#contact" class="rounded-2xl px-4 py-3 text-sm font-semibold text-stone-700 hover:bg-stone-50">Contact</a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main class="pb-24 lg:pb-0">
+    <section class="mx-auto max-w-7xl px-4 pt-4 sm:px-6 lg:pt-6">
+      <div class="relative isolate overflow-hidden rounded-[1.75rem] bg-stone-950 shadow-card animate-fadeUp">
+        <img
+          src="https://images.unsplash.com/photo-1555041469-a586c61ea9bc?q=80&w=1800&auto=format&fit=crop"
+          alt="Premium wooden sofa in a bright living room"
+          class="absolute inset-0 h-full w-full object-cover"
+        >
+        <div class="absolute inset-0 bg-gradient-to-r from-stone-950/80 via-stone-950/42 to-stone-950/8"></div>
+        <div class="relative flex min-h-[320px] items-end px-5 py-6 text-white sm:min-h-[380px] sm:px-8 lg:min-h-[430px] lg:px-10">
+          <div class="max-w-2xl">
+            <p class="mb-3 inline-flex rounded-full bg-white/14 px-3 py-1.5 text-[11px] font-bold uppercase tracking-[0.18em] text-wood-100 backdrop-blur">Solid wood collection</p>
+            <h2 class="max-w-xl text-3xl font-extrabold leading-tight sm:text-5xl">Premium wooden furniture for warm modern homes</h2>
+            <p class="mt-3 max-w-lg text-sm leading-6 text-stone-100 sm:text-base sm:leading-7">
+              Custom sofas, beds, wardrobes, dining sets, and storage crafted for everyday comfort.
+            </p>
+            <div class="mt-5 flex flex-wrap gap-3">
+              <a href="#categories" class="inline-flex rounded-2xl bg-white px-5 py-3 text-sm font-bold text-stone-950 shadow-soft transition hover:-translate-y-0.5 hover:bg-wood-50">
+                Shop Categories
+              </a>
+              <a href="https://wa.me/919381049087?text=Hi%20RR%20Furnitures,%20I%20want%20a%20furniture%20quote." class="inline-flex rounded-2xl border border-white/70 px-5 py-3 text-sm font-bold text-white transition hover:-translate-y-0.5 hover:bg-white hover:text-stone-950">
+                WhatsApp Quote
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="categories" class="mx-auto max-w-7xl px-4 pt-7 sm:px-6 lg:pt-10">
+      <div class="mb-4 flex items-end justify-between gap-4">
+        <div>
+          <p class="text-xs font-extrabold uppercase tracking-[0.18em] text-wood-700">Shop fast</p>
+          <h2 class="mt-1 text-xl font-extrabold text-stone-950 sm:text-2xl">Popular Categories</h2>
+        </div>
+        <a href="products.html" class="shrink-0 text-sm font-bold text-wood-700">View all</a>
+      </div>
+
+      <div class="no-scrollbar -mx-4 flex snap-x snap-mandatory gap-3 overflow-x-auto px-4 pb-2 sm:mx-0 sm:px-0">
+        <a href="products.html?cat=sofa" class="group w-[116px] flex-none snap-start sm:w-[148px]">
+          <div class="overflow-hidden rounded-2xl bg-white p-2 shadow-soft ring-1 ring-stone-100 transition duration-300 group-hover:-translate-y-1 group-hover:shadow-card">
+            <img src="https://www.urbanwood.in/assets/image/popular-items/sofa-set.webp?auto=format&fit=crop&w=500&q=80" alt="Sofas" class="aspect-square w-full rounded-xl object-cover">
+          </div>
+          <p class="mt-2 truncate text-center text-sm font-bold text-stone-800">Sofas</p>
+        </a>
+        <a href="products.html?cat=bed" class="group w-[116px] flex-none snap-start sm:w-[148px]">
+          <div class="overflow-hidden rounded-2xl bg-white p-2 shadow-soft ring-1 ring-stone-100 transition duration-300 group-hover:-translate-y-1 group-hover:shadow-card">
+            <img src="https://www.urbanwood.in/assets/image/popular-items/bed.webp?auto=format&fit=crop&w=500&q=80" alt="Beds" class="aspect-square w-full rounded-xl object-cover">
+          </div>
+          <p class="mt-2 truncate text-center text-sm font-bold text-stone-800">Beds</p>
+        </a>
+        <a href="products.html?cat=dining" class="group w-[116px] flex-none snap-start sm:w-[148px]">
+          <div class="overflow-hidden rounded-2xl bg-white p-2 shadow-soft ring-1 ring-stone-100 transition duration-300 group-hover:-translate-y-1 group-hover:shadow-card">
+            <img src="https://www.urbanwood.in/image/cache/catalog/Dining%20Sets/Relay%206-seater%20dining%20set/Honey/honey1-746x522.jpg?auto=format&fit=crop&w=500&q=80" alt="Dining" class="aspect-square w-full rounded-xl object-cover">
+          </div>
+          <p class="mt-2 truncate text-center text-sm font-bold text-stone-800">Dining</p>
+        </a>
+        <a href="products.html?cat=tv" class="group w-[116px] flex-none snap-start sm:w-[148px]">
+          <div class="overflow-hidden rounded-2xl bg-white p-2 shadow-soft ring-1 ring-stone-100 transition duration-300 group-hover:-translate-y-1 group-hover:shadow-card">
+            <img src="https://www.urbanwood.in/image/cache/catalog/tv-units/relay/honey/honey-look-1-746x522.jpg?auto=format&fit=crop&w=500&q=80" alt="TV Units" class="aspect-square w-full rounded-xl object-cover">
+          </div>
+          <p class="mt-2 truncate text-center text-sm font-bold text-stone-800">TV Units</p>
+        </a>
+        <a href="products.html?cat=wardrobe" class="group w-[116px] flex-none snap-start sm:w-[148px]">
+          <div class="overflow-hidden rounded-2xl bg-white p-2 shadow-soft ring-1 ring-stone-100 transition duration-300 group-hover:-translate-y-1 group-hover:shadow-card">
+            <img src="https://cdn.swadeshonline.com/v2/patient-paper-41f385/swad-p/wrkr/products/pictures/item/free/450x0/UOudxmh2--Fidora-Wardrobe-in-Teak-Finish.jpeg?auto=format&fit=crop&w=500&q=80" alt="Wardrobes" class="aspect-square w-full rounded-xl object-cover">
+          </div>
+          <p class="mt-2 truncate text-center text-sm font-bold text-stone-800">Wardrobes</p>
+        </a>
+        <a href="products.html?cat=study" class="group w-[116px] flex-none snap-start sm:w-[148px]">
+          <div class="overflow-hidden rounded-2xl bg-white p-2 shadow-soft ring-1 ring-stone-100 transition duration-300 group-hover:-translate-y-1 group-hover:shadow-card">
+            <img src="https://www.urbanwood.in/assets/image/popular-items/studytables.webp?auto=format&fit=crop&w=500&q=80" alt="Study Tables" class="aspect-square w-full rounded-xl object-cover">
+          </div>
+          <p class="mt-2 truncate text-center text-sm font-bold text-stone-800">Study</p>
+        </a>
+        <a href="products.html?cat=chair" class="group w-[116px] flex-none snap-start sm:w-[148px]">
+          <div class="overflow-hidden rounded-2xl bg-white p-2 shadow-soft ring-1 ring-stone-100 transition duration-300 group-hover:-translate-y-1 group-hover:shadow-card">
+            <img src="https://cdn.swadeshonline.com/v2/patient-paper-41f385/swad-p/wrkr/products/pictures/item/free/450x0/_ufbmCa7Va-0.jpg?auto=format&fit=crop&w=500&q=80" alt="Chairs" class="aspect-square w-full rounded-xl object-cover">
+          </div>
+          <p class="mt-2 truncate text-center text-sm font-bold text-stone-800">Chairs</p>
+        </a>
+        <a href="products.html?cat=table" class="group w-[116px] flex-none snap-start sm:w-[148px]">
+          <div class="overflow-hidden rounded-2xl bg-white p-2 shadow-soft ring-1 ring-stone-100 transition duration-300 group-hover:-translate-y-1 group-hover:shadow-card">
+            <img src="https://images.unsplash.com/photo-1549187774-b4e9f0443d64?q=80&w=500&auto=format&fit=crop" alt="Tables" class="aspect-square w-full rounded-xl object-cover">
+          </div>
+          <p class="mt-2 truncate text-center text-sm font-bold text-stone-800">Tables</p>
+        </a>
+        <a href="products.html?cat=storage" class="group w-[116px] flex-none snap-start sm:w-[148px]">
+          <div class="overflow-hidden rounded-2xl bg-white p-2 shadow-soft ring-1 ring-stone-100 transition duration-300 group-hover:-translate-y-1 group-hover:shadow-card">
+            <img src="https://www.urbanwood.in/assets/image/shopby-room/storage/storage_2_410x328.webp?auto=format&fit=crop&w=500&q=80" alt="Storage" class="aspect-square w-full rounded-xl object-cover">
+          </div>
+          <p class="mt-2 truncate text-center text-sm font-bold text-stone-800">Storage</p>
+        </a>
+        <a href="products.html?cat=shoe" class="group w-[116px] flex-none snap-start sm:w-[148px]">
+          <div class="overflow-hidden rounded-2xl bg-white p-2 shadow-soft ring-1 ring-stone-100 transition duration-300 group-hover:-translate-y-1 group-hover:shadow-card">
+            <img src="https://images.unsplash.com/photo-1600585152220-90363fe7e115?q=80&w=500&auto=format&fit=crop" alt="Shoe Racks" class="aspect-square w-full rounded-xl object-cover">
+          </div>
+          <p class="mt-2 truncate text-center text-sm font-bold text-stone-800">Shoe Racks</p>
+        </a>
+      </div>
+    </section>
+
+    <section id="top-picks" class="mx-auto max-w-7xl px-4 pt-8 sm:px-6 lg:pt-12">
+      <div class="mb-4 flex items-end justify-between gap-4">
+        <div>
+          <p class="text-xs font-extrabold uppercase tracking-[0.18em] text-wood-700">Curated looks</p>
+          <h2 class="mt-1 text-xl font-extrabold text-stone-950 sm:text-2xl">Top Wooden Designs</h2>
+        </div>
+        <a href="work-gallery.html" class="text-sm font-bold text-wood-700">Gallery</a>
+      </div>
+
+      <div class="no-scrollbar -mx-4 flex snap-x snap-mandatory gap-4 overflow-x-auto px-4 pb-2 sm:mx-0 sm:grid sm:grid-cols-3 sm:px-0">
+        <article class="w-[82vw] flex-none snap-start overflow-hidden rounded-3xl bg-white shadow-soft ring-1 ring-stone-100 transition hover:-translate-y-1 hover:shadow-card sm:w-auto">
+          <a href="work-gallery.html?design=bedroom" class="block overflow-hidden">
+            <img src="https://images.livspace-cdn.com/w:640/plain/https://d3gq2merok8n5r.cloudfront.net/abhinav/ond-1634120396-Obfdc/di-2026-1769081758-Ayx2Q/jfm-1769081772-NQyUm/ki-1769595043-UVNce/ki-46-1773117999-v9wuC.jpg?q=80&w=1200&auto=format&fit=crop" alt="Contemporary bedroom" class="aspect-[4/3] w-full object-cover transition duration-500 hover:scale-105">
+          </a>
+          <div class="p-4">
+            <h3 class="text-base font-extrabold text-stone-950">Contemporary Bedroom</h3>
+            <p class="mt-2 text-sm leading-6 text-stone-600">Headboard panels, wardrobes, and bedside units with a warm wood finish.</p>
+            <a href="work-gallery.html?design=bedroom" class="mt-4 inline-flex text-sm font-bold text-wood-700">Request similar</a>
+          </div>
+        </article>
+
+        <article class="w-[82vw] flex-none snap-start overflow-hidden rounded-3xl bg-white shadow-soft ring-1 ring-stone-100 transition hover:-translate-y-1 hover:shadow-card sm:w-auto">
+          <a href="work-gallery.html?design=dining" class="block overflow-hidden">
+            <img src="https://images.livspace-cdn.com/w:1440/plain/https://d3gq2merok8n5r.cloudfront.net/abhinav/ond-1634120396-Obfdc/jfm-1643351360-ZAORQ/3d-team-1651477394-vrRr8/jfm-1651477408-yU7HY/june-1656893265-SL5ET/2022-06-24-clin350-dr01-op1-v1-mu-01-1656893405-eaizW.jpg?q=80&w=1200&auto=format&fit=crop" alt="Open living and dining" class="aspect-[4/3] w-full object-cover transition duration-500 hover:scale-105">
+          </a>
+          <div class="p-4">
+            <h3 class="text-base font-extrabold text-stone-950">Open Living and Dining</h3>
+            <p class="mt-2 text-sm leading-6 text-stone-600">A cohesive layout for connected family spaces and daily hosting.</p>
+            <a href="work-gallery.html?design=dining" class="mt-4 inline-flex text-sm font-bold text-wood-700">View details</a>
+          </div>
+        </article>
+
+        <article class="w-[82vw] flex-none snap-start overflow-hidden rounded-3xl bg-white shadow-soft ring-1 ring-stone-100 transition hover:-translate-y-1 hover:shadow-card sm:w-auto">
+          <a href="work-gallery.html?design=commercial" class="block overflow-hidden">
+            <img src="https://i.pinimg.com/736x/8a/6b/b3/8a6bb399cab9ccf2d3636bd00fa088c2.jpg?q=80&w=1200&auto=format&fit=crop" alt="Cafe and restaurant theme" class="aspect-[4/3] w-full object-cover transition duration-500 hover:scale-105">
+          </a>
+          <div class="p-4">
+            <h3 class="text-base font-extrabold text-stone-950">Cafe and Restaurant Theme</h3>
+            <p class="mt-2 text-sm leading-6 text-stone-600">Counters, seating, display units, and storage for business spaces.</p>
+            <a href="work-gallery.html?design=commercial" class="mt-4 inline-flex text-sm font-bold text-wood-700">Discuss project</a>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section id="why-us" class="mx-auto max-w-7xl px-4 pt-8 sm:px-6 lg:pt-12">
+      <div class="grid grid-cols-2 gap-3 sm:grid-cols-4">
+        <article class="rounded-2xl bg-white p-3 shadow-soft ring-1 ring-stone-100 sm:p-4">
+          <div class="mb-3 flex h-9 w-9 items-center justify-center rounded-xl bg-wood-50 text-wood-700">
+            <svg class="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9">
+              <path d="M12 3 5 6v6c0 4.2 2.5 7.6 7 9 4.5-1.4 7-4.8 7-9V6l-7-3Z" stroke-linecap="round" stroke-linejoin="round"></path>
+            </svg>
+          </div>
+          <h3 class="text-sm font-extrabold text-stone-950">Quality Build</h3>
+          <p class="mt-1 text-xs leading-5 text-stone-600">Solid and durable finishes.</p>
+        </article>
+        <article class="rounded-2xl bg-white p-3 shadow-soft ring-1 ring-stone-100 sm:p-4">
+          <div class="mb-3 flex h-9 w-9 items-center justify-center rounded-xl bg-wood-50 text-wood-700">
+            <svg class="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9">
+              <path d="M4 19h16M6 17V7l6-3 6 3v10" stroke-linecap="round" stroke-linejoin="round"></path>
+              <path d="M9 11h6M9 14h6" stroke-linecap="round"></path>
+            </svg>
+          </div>
+          <h3 class="text-sm font-extrabold text-stone-950">Custom Fit</h3>
+          <p class="mt-1 text-xs leading-5 text-stone-600">Made to your space.</p>
+        </article>
+        <article class="rounded-2xl bg-white p-3 shadow-soft ring-1 ring-stone-100 sm:p-4">
+          <div class="mb-3 flex h-9 w-9 items-center justify-center rounded-xl bg-wood-50 text-wood-700">
+            <svg class="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9">
+              <path d="M5 12h14M12 5v14" stroke-linecap="round"></path>
+            </svg>
+          </div>
+          <h3 class="text-sm font-extrabold text-stone-950">Site Visits</h3>
+          <p class="mt-1 text-xs leading-5 text-stone-600">Measure and plan.</p>
+        </article>
+        <article class="rounded-2xl bg-white p-3 shadow-soft ring-1 ring-stone-100 sm:p-4">
+          <div class="mb-3 flex h-9 w-9 items-center justify-center rounded-xl bg-wood-50 text-wood-700">
+            <svg class="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9">
+              <path d="M3 7h18M7 3v4M17 3v4M5 11h14v8H5z" stroke-linecap="round" stroke-linejoin="round"></path>
+            </svg>
+          </div>
+          <h3 class="text-sm font-extrabold text-stone-950">Bulk Projects</h3>
+          <p class="mt-1 text-xs leading-5 text-stone-600">Homes and offices.</p>
+        </article>
+      </div>
+    </section>
+
+    <section id="stories" class="mx-auto max-w-7xl px-4 pt-8 sm:px-6 lg:pt-12">
+      <div class="mb-4">
+        <p class="text-xs font-extrabold uppercase tracking-[0.18em] text-wood-700">Real inspiration</p>
+        <h2 class="mt-1 text-xl font-extrabold text-stone-950 sm:text-2xl">Customer Stories</h2>
+      </div>
+
+      <div class="no-scrollbar -mx-4 flex snap-x snap-mandatory gap-3 overflow-x-auto px-4 pb-2 sm:mx-0 sm:grid sm:grid-cols-4 sm:px-0">
+        <article class="w-[42vw] flex-none snap-start overflow-hidden rounded-3xl bg-white shadow-soft sm:w-auto">
+          <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?q=80&w=700&auto=format&fit=crop" alt="Living room sofa set" class="aspect-square w-full object-cover">
+        </article>
+        <article class="w-[42vw] flex-none snap-start overflow-hidden rounded-3xl bg-white shadow-soft sm:w-auto">
+          <img src="https://images.unsplash.com/photo-1505693416388-ac5ce068fe85?q=80&w=700&auto=format&fit=crop" alt="Wooden bed" class="aspect-square w-full object-cover">
+        </article>
+        <article class="w-[42vw] flex-none snap-start overflow-hidden rounded-3xl bg-white shadow-soft sm:w-auto">
+          <img src="https://images.unsplash.com/photo-1598300053694-1bb64063b1b5?q=80&w=700&auto=format&fit=crop" alt="Dining table" class="aspect-square w-full object-cover">
+        </article>
+        <article class="w-[42vw] flex-none snap-start overflow-hidden rounded-3xl bg-white shadow-soft sm:w-auto">
+          <img src="https://images.unsplash.com/photo-1519710164239-da123dc03ef4?q=80&w=700&auto=format&fit=crop" alt="Study table" class="aspect-square w-full object-cover">
+        </article>
+      </div>
+    </section>
+
+    <section class="mx-auto max-w-7xl px-4 pt-8 sm:px-6 lg:pt-12">
+      <div class="mb-4 flex items-end justify-between gap-4">
+        <div>
+          <p class="text-xs font-extrabold uppercase tracking-[0.18em] text-wood-700">Social inspiration</p>
+          <h2 class="mt-1 text-xl font-extrabold text-stone-950 sm:text-2xl">Instagram Gallery</h2>
+        </div>
+        <a href="#" class="shrink-0 text-sm font-bold text-wood-700">Open Instagram</a>
+      </div>
+
+      <div class="no-scrollbar -mx-4 flex snap-x snap-mandatory gap-3 overflow-x-auto px-4 pb-2 sm:mx-0 sm:grid sm:grid-cols-4 sm:px-0">
+        <article class="w-[42vw] flex-none snap-start overflow-hidden rounded-3xl bg-white shadow-soft ring-1 ring-stone-100 sm:w-auto">
+          <img src="https://images.unsplash.com/photo-1545239351-1141bd82e8a6?q=80&w=700&auto=format&fit=crop" alt="Interior inspiration" class="aspect-square w-full object-cover transition duration-500 hover:scale-105">
+        </article>
+        <article class="w-[42vw] flex-none snap-start overflow-hidden rounded-3xl bg-white shadow-soft ring-1 ring-stone-100 sm:w-auto">
+          <img src="https://images.unsplash.com/photo-1595526114035-0d45ed16cfbf?q=80&w=700&auto=format&fit=crop" alt="Woodwork inspiration" class="aspect-square w-full object-cover transition duration-500 hover:scale-105">
+        </article>
+        <article class="w-[42vw] flex-none snap-start overflow-hidden rounded-3xl bg-white shadow-soft ring-1 ring-stone-100 sm:w-auto">
+          <img src="https://images.unsplash.com/photo-1582719478250-c89cae4dc85b?q=80&w=700&auto=format&fit=crop" alt="Dining inspiration" class="aspect-square w-full object-cover transition duration-500 hover:scale-105">
+        </article>
+        <article class="w-[42vw] flex-none snap-start overflow-hidden rounded-3xl bg-white shadow-soft ring-1 ring-stone-100 sm:w-auto">
+          <img src="https://images.unsplash.com/photo-1582719478250-cc77c9e0eeb7?q=80&w=700&auto=format&fit=crop" alt="Decor inspiration" class="aspect-square w-full object-cover transition duration-500 hover:scale-105">
+        </article>
+      </div>
+    </section>
+
+    <footer id="contact" class="mx-auto max-w-7xl px-4 pb-8 pt-8 sm:px-6 lg:pt-12">
+      <div class="rounded-3xl bg-stone-950 p-6 text-stone-200 shadow-card sm:p-8">
+        <div class="grid gap-8 md:grid-cols-[1fr_0.8fr_1fr]">
+          <div>
+            <div class="flex items-center gap-3">
+              <div class="flex h-11 w-11 items-center justify-center rounded-2xl bg-white font-extrabold text-wood-700">RR</div>
+              <div>
+                <p class="font-extrabold text-white">RR Furnitures</p>
+                <p class="text-xs text-stone-400">Wooden Interiors and Furniture</p>
+              </div>
+            </div>
+            <p class="mt-4 text-sm leading-6 text-stone-400">
+              Functional and beautiful wooden interiors for homes, cafes, offices, and businesses.
+            </p>
+          </div>
+
+          <div>
+            <h3 class="font-extrabold text-white">Contact</h3>
+            <div class="mt-4 space-y-3 text-sm text-stone-400">
+              <p><a href="tel:+919381049087" class="hover:text-white">+91 93810 49087</a></p>
+              <p><a href="mailto:rr.furnitures@gmail.com" class="hover:text-white">rr.furnitures@gmail.com</a></p>
+              <p>Andhra Pradesh, India</p>
+            </div>
+          </div>
+
+          <div>
+            <h3 class="font-extrabold text-white">Request Callback</h3>
+            <form id="contactForm" class="mt-4 space-y-3">
+              <input type="text" placeholder="Your name" class="w-full rounded-2xl border border-stone-700 bg-stone-900 px-4 py-3 text-sm text-white placeholder:text-stone-500 focus:border-wood-500 focus:outline-none">
+              <input type="tel" placeholder="Phone number" class="w-full rounded-2xl border border-stone-700 bg-stone-900 px-4 py-3 text-sm text-white placeholder:text-stone-500 focus:border-wood-500 focus:outline-none">
+              <textarea rows="3" placeholder="Short message" class="w-full rounded-2xl border border-stone-700 bg-stone-900 px-4 py-3 text-sm text-white placeholder:text-stone-500 focus:border-wood-500 focus:outline-none"></textarea>
+              <button type="button" id="submitBtn" class="w-full rounded-2xl bg-wood-700 px-4 py-3 text-sm font-bold text-white transition hover:bg-wood-500">Submit request</button>
+            </form>
+          </div>
+        </div>
+
+        <div class="mt-8 border-t border-stone-800 pt-5 text-center text-xs text-stone-500">
+          &copy; <span id="year"></span> RR Furnitures. All rights reserved.
+        </div>
+      </div>
+    </footer>
+  </main>
+
+  <a
+    href="https://wa.me/919381049087?text=Hello%20RR%20Furnitures,%20I%20am%20interested%20in%20your%20furniture%20products.%20Please%20share%20pricing,%20customization,%20and%20availability."
+    target="_blank"
+    rel="noreferrer"
+    class="fixed bottom-20 right-4 z-40 inline-flex h-12 w-12 items-center justify-center rounded-full bg-green-500 text-white shadow-card transition hover:-translate-y-0.5 hover:bg-green-600 sm:bottom-6 sm:right-6 sm:h-auto sm:w-auto sm:gap-2 sm:px-4 sm:py-3"
+  >
+    <svg class="h-5 w-5" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+      <path d="M20.5 3.5c-2-2-5.1-2-7 0L7.2 9.2A4.8 4.8 0 0 0 6 14l-1 4.6 4.6-1.1c1.7-.4 3.5.1 4.8 1.4l6.3 6.3c2 2 5.1 2 7 0 2-2 2-5.1 0-7l-7.2-7.1z"></path>
+    </svg>
+    <span class="hidden text-sm font-bold sm:inline">WhatsApp</span>
+  </a>
+
+  <div class="fixed inset-x-0 bottom-0 z-40 border-t border-stone-200 bg-white/95 px-4 py-3 shadow-[0_-8px_24px_rgba(15,23,42,0.12)] backdrop-blur lg:hidden">
+    <div class="grid grid-cols-2 gap-3">
+      <a href="tel:+919381049087" class="flex items-center justify-center rounded-2xl border border-stone-200 bg-white px-4 py-3 text-sm font-extrabold text-stone-900">
+        Call Now
+      </a>
+      <a href="https://wa.me/919381049087" class="flex items-center justify-center rounded-2xl bg-wood-700 px-4 py-3 text-sm font-extrabold text-white">
+        WhatsApp
+      </a>
+    </div>
+  </div>
+
+  <script>
+    const yearEl = document.getElementById("year");
+    if (yearEl) {
+      yearEl.textContent = new Date().getFullYear();
+    }
+
+    const submitBtn = document.getElementById("submitBtn");
+    if (submitBtn) {
+      submitBtn.addEventListener("click", () => {
+        alert("Thanks! Your callback request has been noted. We will integrate full form handling next.");
+      });
+    }
+
+    const menuBtn = document.getElementById("mobileMenuBtn");
+    const mobileNav = document.getElementById("mobileNav");
+
+    if (menuBtn && mobileNav) {
+      menuBtn.addEventListener("click", () => {
+        const isOpen = !mobileNav.classList.contains("hidden");
+        mobileNav.classList.toggle("hidden");
+        menuBtn.setAttribute("aria-expanded", String(!isOpen));
+      });
+
+      document.addEventListener("click", (event) => {
+        const target = event.target;
+        if (!(target instanceof Node)) return;
+
+        if (!mobileNav.classList.contains("hidden") &&
+            !mobileNav.contains(target) &&
+            !menuBtn.contains(target)) {
+          mobileNav.classList.add("hidden");
+          menuBtn.setAttribute("aria-expanded", "false");
+        }
+      });
+    }
+  </script>
+</body>
+</html>
