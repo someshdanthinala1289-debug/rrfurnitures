@@ -30,7 +30,11 @@ console.log("Firebase Connected ✔");
 // ------------------------------------------------------------
 // 🔥 ADD PRODUCT
 // ------------------------------------------------------------
+<<<<<<< HEAD
 export async function addProduct(name, price, stock, img, desc, category) {
+=======
+export async function addProduct(name, price, stock, img, desc) {
+>>>>>>> 3780acafc04ab57cf6dc2f64dd4e2f61a8d7fc13
   await addDoc(collection(db, "products"), {
     name,
     price,
@@ -92,4 +96,8 @@ import { updateDoc } from "https://www.gstatic.com/firebasejs/10.12.3/firebase-f
 export async function updateProduct(id, data) {
   const ref = doc(db, "products", id);
   await updateDoc(ref, data);
+<<<<<<< HEAD
 }
+=======
+}
+>>>>>>> 3780acafc04ab57cf6dc2f64dd4e2f61a8d7fc13
